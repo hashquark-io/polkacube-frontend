@@ -1,0 +1,109 @@
+//
+//---------------------------------- H5
+.pc-footer,
+.h5-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(198, 198, 198, 0.5);
+}
+
+html.mobile {
+  .h5-footer {
+    width: 100%;
+    height: $height-h5-footer;
+    padding: 3vh 3%;
+
+    p {
+      display: flex;
+      font-size: 12px;
+    }
+
+    &>p:nth-of-type(1) {
+      margin-bottom: 10px;
+
+      a:first-child {
+        margin-right: 15px;
+      }
+    }
+
+    a {
+      font-size: 12px;
+      color: #001032;
+    }
+  }
+
+}
+
+// ---------------------------------- PC
+
+html.desktop {
+  .pc-footer {
+    padding-top: 50px;
+    width: 100%;
+    height: $height-pc-footer;
+
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      margin: auto;
+      min-width: 1200px;
+      width: 80%;
+
+      .left {
+        display: flex;
+        align-items: center;
+
+        &>img {
+          width: 140px;
+        }
+
+        .sub-title {
+          margin-left: 12px;
+          font-size: 14px;
+
+          span {
+            display: inline-block;
+            transform: translateY(1px);
+            margin-left: 12px;
+          }
+        }
+      }
+
+      .center {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+        min-width: 120px;
+
+        .item {
+          min-width: 120px;
+          font-size: 14px;
+
+          .title {
+            margin-bottom: 6px;
+            color: #002264;
+            line-height: 24px;
+            font-size: 12px;
+
+          }
+
+          a {
+            display: block;
+            color: #8493B3;
+            font-size: 12px;
+            line-height: 1.8;
+          }
+        }
+      }
+
+      .right {
+        font-size: 12px;
+        align-self: flex-start;
+      }
+    }
+
+  }
+}

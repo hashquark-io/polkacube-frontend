@@ -1,0 +1,105 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 14px;
+  min-height: 100%;
+  color: #03144b;
+  overflow-y: scroll;
+}
+
+html.desktop {
+  body {
+    line-height: 24px;
+    padding-top: $height-pc-navi;
+  }
+}
+
+html.mobile {
+  body {
+    line-height: 1.6;
+    padding-top: $height-h5-navi;
+  }
+}
+
+// 消除子元素 margin-top 对 body 的影响
+#app::before,
+body::before {
+  content: '';
+  display: table;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: #628ee7;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: all 0.3s;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+    color: #3b72e1;
+    transition: all 0.3s;
+  }
+}
+
+i {
+  font-style: normal;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+hr {
+  border: none;
+  border-bottom: dotted 1px rgba(#8493b3, 0.3);
+}
+
+table {
+  th {
+    font-weight: 500;
+  }
+}

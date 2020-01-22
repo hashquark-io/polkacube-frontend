@@ -1,0 +1,32 @@
+{
+  "zh-CN": {
+    "title": "验证人",
+    "chart": ["抵押总额", "自抵押", "提名人抵押"],
+    "chartLegend": {
+      "自抵押": "selfBondedKsm",
+      "提名人抵押": "nominatorsBondedKsm"
+    },
+    "info": ["佣金", "纪元分", "最近出块"],
+    "nav": ["提名人", "Slash记录", "Slash 统计"]
+  },
+  "zh-TW": {
+    "title": "驗證人",
+    "chart": ["抵押總額", "自抵押", "提名人抵押"],
+    "chartLegend": {
+      "自抵押": "selfBondedKsm",
+      "提名人抵押": "nominatorsBondedKsm"
+    },
+    "info": ["佣金", "紀元分", "最近出塊"],
+    "nav": ["提名人", "Slash記錄", "Slash 統計"]
+  },
+  "en-US": {
+    "title": "Validator",
+    "chart": ["Total Bonded", "Self bonded", "Nominators bonded"],
+    "chartLegend": {
+      "Self bonded": "selfBondedKsm",
+      "Nominators bonded": "nominatorsBondedKsm"
+    },
+    "info": ["Commission", "Era Points", "Recent Block"],
+    "nav": ["Nominators", "Slashing Records", "Statistics"]
+  }
+}

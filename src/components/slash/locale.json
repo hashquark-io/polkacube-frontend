@@ -1,0 +1,39 @@
+{
+  "zh-CN": {
+    "title1": "Slash 记录",
+    "title2": "Slash 统计",
+    "recordsTitle": ["验证人", "事件号", "金额"],
+    "statisticsTitle": ["验证人", "次数", "总金额"],
+    "refreshBtn": "刷新",
+    "searchBtn": "搜索",
+    "placeholder": "请输入地址",
+    "loadBtn": "加载更多",
+    "emptyText": "暂无数据"
+
+  },
+  "zh-TW": {
+    "title1": "Slash 記錄",
+    "title2": "Slash 統計",
+    "recordsTitle": ["驗證人", "事件號", "金額"],
+    "statisticsTitle": ["驗證人", "次數", "總金額"],
+    "refreshBtn": "刷新",
+    "searchBtn": "搜索",
+    "placeholder": "請輸入地址",
+    "loadBtn": "加載更多",
+    "emptyText": "暫無數據"
+
+
+  },
+  "en-US": {
+    "title1": "Slashing Records",
+    "title2": "Statistics",
+    "recordsTitle": ["Validator", "Event ID", "Amount"],
+    "statisticsTitle": ["Validator", "Count", "Total Amount"],
+    "refreshBtn": "Refresh",
+    "searchBtn": "Search",
+    "placeholder": "Enter an address",
+    "loadBtn": "Load more",
+    "emptyText": "No records"
+
+  }
+}

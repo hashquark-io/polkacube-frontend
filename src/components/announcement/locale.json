@@ -1,0 +1,11 @@
+{
+  "zh-CN": {
+    "validatorName": "验证人"
+  },
+  "zh-TW": {
+    "validatorName": "驗證人"
+  },
+  "en-US": {
+    "validatorName": "Validator"
+  }
+}

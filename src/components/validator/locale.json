@@ -1,0 +1,21 @@
+{
+  "zh-CN": {
+    "title": "验证人",
+    "tableTitle": ["验证人", "抵押总额", "佣金", "纪元分", "最近出块", "收藏"],
+    "validatorName": "验证人",
+    "emptyText": "暂无数据"
+  },
+  "zh-TW": {
+    "title": "驗證人",
+    "tableTitle": ["驗證人", "抵押總額", "佣金", "紀元分", "最近出塊", "收藏"],
+    "validatorName": "驗證人",
+    "emptyText": "暫無數據"
+
+  },
+  "en-US": {
+    "title": "Validators",
+    "tableTitle": ["Validator", "Bonded", "Commission", "Era Points", "Recent Block", "Favorite"],
+    "validatorName": "Validator",
+    "emptyText": "No records"
+  }
+}

@@ -1,0 +1,132 @@
+html.desktop {
+  .nominator-comp-wrap {
+    position: relative;
+    padding: 95px 0 0;
+    min-height: 748px;
+    height: calc(100vh - 50px);
+    background: url('../../assets/img/validator-bg.png') no-repeat 107px 59px;
+    background-size: 289px;
+
+    .img-dot {
+      width: 34px;
+      height: 4px;
+    }
+
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #002264;
+        line-height: 30px;
+      }
+
+    }
+
+    .table-comp-wrap {
+      margin-top: 15px;
+      padding-left: 15px;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0px 8px 22px 0px rgba(227, 237, 255, 1);
+      border-radius: 10px;
+
+      .loading-btn {
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        cursor: pointer;
+      }
+
+      .table-col-1 {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .address {
+        margin-left: 23px;
+        color: #002264;
+      }
+
+    }
+
+    .table-header-cell {
+
+      color: #7E8AA3;
+      border-bottom: none;
+
+      &:nth-of-type(3) {
+        padding-right: 20px;
+      }
+    }
+
+    .table-body-cell {
+
+      color: #002264;
+      padding: 13px 0;
+
+      &:nth-of-type(3) {
+        padding-right: 20px;
+      }
+    }
+
+    .el-table::before {
+      background: transparent;
+    }
+  }
+}
+
+html.mobile {
+  .nominator-comp-wrap {
+    min-height: 100vh;
+    padding: 10px 10px 30px;
+    background: #fff;
+    border-radius: 10px;
+
+    .table-comp-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100%;
+
+      .loading-btn {
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        cursor: pointer;
+      }
+
+      .table-col-1 {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .address {
+        margin-left: 5px;
+        color: #002264;
+        overflow: hidden;
+        width: 160px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+    }
+
+    .table-header-cell {
+
+      color: #7E8AA3;
+      border-bottom: none;
+    }
+
+    .table-body-cell {
+
+      color: #002264;
+      padding: 13px 0;
+    }
+  }
+}

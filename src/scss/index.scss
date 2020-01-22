@@ -1,0 +1,18 @@
+@import './reset.scss';
+@import './common.scss';
+
+html.desktop {
+  .app {
+    .router-view {
+      min-width: 1200px;
+    }
+
+    padding-bottom: $height-pc-footer;
+  }
+}
+
+html.mobile {
+  .app {
+    padding-bottom: $height-h5-footer;
+  }
+}

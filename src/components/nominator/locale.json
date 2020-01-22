@@ -1,0 +1,21 @@
+{
+  "zh-CN": {
+    "title": "提名人",
+    "tableTitle": ["提名人", "金额", "百分比"],
+    "loadBtn": "加载更多",
+    "emptyText": "暂无数据"
+  },
+  "zh-TW": {
+    "title": "提名人",
+    "tableTitle": ["提名人", "金額", "百分比"],
+    "loadBtn": "加載更多",
+    "emptyText": "暫無數據"
+
+  },
+  "en-US": {
+    "title": "Nominators",
+    "tableTitle": ["Nominator", "Amount", "Percentage"],
+    "loadBtn": "Load more",
+    "emptyText": "No records"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "zh-CN": {
+    "intro": "欢迎来到 PolkaCube！",
+    "info": ["总发行量", "最终确认区块", "验证人", "通胀率", "抵押率", "节点预计每日收益", "时代", "纪元"],
+    "nav": ["验证人", "全网收益记录", "Slash记录", "Slash 统计"],
+    "contact": "如有问题请联系我们：contact@hashquark.io"
+  },
+  "zh-TW": {
+    "intro": "歡迎來到 PolkaCube！",
+    "info": ["總發行量", "最終確認區塊", "驗證人", "通脹率", "抵押率", "節點預計每日收益", "時代", "紀元"],
+    "nav": ["驗證人", "全網收益記錄", "Slash記錄", "Slash 統計"],
+    "contact": "如有問題請聯繫我們：contact@hashquark.io"
+  },
+  "en-US": {
+    "intro": "Welcome to PolkaCube!",
+    "info": ["Total Issurance", "Finalized Block", "Validators", "Inflation", "Stake Bonded", "Est. Daily Node Reward", "Epoch", "Era"],
+    "nav": ["Validator", "Reward Records", "Slashing Records", "Statistics"],
+    "contact": "If you have any questions, feel free to contact us at contact@hashquark.io"
+  }
+}

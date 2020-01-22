@@ -1,0 +1,309 @@
+.polka.wrapper {
+  background: #F8F9FC;
+}
+
+.contact {
+  min-height: 0 !important;
+
+  img {
+    width: 16px;
+    height: 16px;
+    margin-right: 14px;
+    vertical-align: middle;
+  }
+}
+
+html.desktop {
+  .info-wrap {
+    position: relative;
+    margin: auto;
+    padding-top: 63px;
+    width: 1200px;
+    height: 490px;
+
+    .bg-1 {
+      position: absolute;
+      left: 0;
+      top: -60px;
+      width: 574px;
+      height: 138px;
+    }
+  }
+
+  .intro {
+    position: relative;
+    padding-left: 127px;
+    display: flex;
+    align-items: center;
+    height: 87px;
+    background: url('./img/chain-icon.svg') no-repeat 43px 42px,
+      url('./img/intro-bg.png') no-repeat left top;
+    background-size: 34px 44px,
+      91px 87px;
+
+    color: #002264;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .info {
+    margin-top: 58px;
+    padding: 24px 20px 0;
+    background: url('./img/info-bg.png') no-repeat right bottom;
+    background-size: 222px 151px;
+    background-color: #fff;
+    border-radius: 10px;
+
+    .item {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 44px;
+      width: 193px;
+      height: 63px;
+
+
+      &:nth-of-type(7),
+      &:nth-of-type(8) {
+        margin-bottom: 24px;
+      }
+
+      .key {
+        font-size: 12px;
+        font-weight: 400;
+        color: #7E8AA3;
+        line-height: 17px;
+      }
+
+      .value {
+        font-size: 22px;
+        font-weight: 600;
+        color: #002264;
+        line-height: 30px;
+
+        &.progress {
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+
+      .progress-bar {
+        margin-top: 5px;
+        width: 120px;
+        height: 6px;
+        background: #E8ECF3;
+        border-radius: 3px;
+        overflow: hidden;
+
+        .bar {
+          border-radius: 3px;
+          width: 0;
+          height: 100%;
+          background: #3B72E1;
+        }
+      }
+    }
+  }
+
+  .item-wrap {
+    &-grey {
+      min-width: 1200px;
+      background: #F8F9FC;
+    }
+
+    &-white {
+      min-width: 1200px;
+      background: #fff;
+    }
+  }
+
+  .content {
+    margin: auto;
+    width: 1200px;
+    min-height: calc(100vh - 50px);
+  }
+
+  .contact {
+    padding-bottom: 50px;
+  }
+
+}
+
+html.mobile {
+  .info-wrap {
+    position: relative;
+    margin: auto;
+    padding-top: 22px;
+    padding-bottom: 30px;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(179, 196, 229, 1) 0%, rgba(255, 255, 255, 1) 100%) no-repeat;
+    background-color: transparent;
+    background-size: 100% 180px;
+
+    .bg-1 {
+      position: absolute;
+      left: 0;
+      top: -50px;
+      width: 320px;
+      height: 138px;
+    }
+  }
+
+  .intro {
+    position: relative;
+    margin-bottom: 42px;
+    padding-left: 95px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    height: 87px;
+    background: url('./img/chain-icon.svg') no-repeat 43px 40px, url('./img/intro-bg.png') no-repeat left 5px;
+    background-size: 30px 40px,
+      86px 82px;
+    color: #002264;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
+    word-break: break-all;
+  }
+
+  .info {
+    margin: auto;
+    padding: 3% 3% 6%;
+    width: 95%;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+
+      &:nth-of-type(7),
+      &:nth-of-type(8) {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+        width: 40%;
+        height: inherit;
+
+        .key {
+          font-size: 12px;
+          margin-bottom: 10px;
+        }
+      }
+
+      &:nth-of-type(8) {
+        margin-left: 18%;
+      }
+
+      .key {
+        font-size: 14px;
+        font-weight: 400;
+        color: #7E8AA3;
+        line-height: 17px;
+      }
+
+      .value {
+        font-size: 16px;
+        font-weight: 600;
+        color: #002264;
+        line-height: 30px;
+
+        &.progress {
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+
+      .progress-bar {
+        margin-top: 5px;
+        width: 120px;
+        height: 6px;
+        background: #E8ECF3;
+        border-radius: 3px;
+        overflow: hidden;
+
+        .bar {
+          border-radius: 3px;
+          width: 0;
+          height: 100%;
+          background: #3B72E1;
+        }
+      }
+    }
+  }
+
+  .table-h5-wrap {
+    position: relative;
+  }
+
+  .tabs {
+    margin-bottom: 10px;
+    padding: 0 3%;
+    overflow-x: scroll;
+    width: 100%;
+    height: 38px;
+    background: #F8F9FC;
+
+
+    .tab-wrap {
+      white-space: nowrap;
+
+      &>div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 2px;
+        padding: 0 16px;
+        min-height: 38px;
+        color: #002264;
+        font-size: 16px;
+        font-weight: 600;
+        background: linear-gradient(180deg, rgba(239, 242, 247, 1) 0%, rgba(218, 223, 233, 1) 100%);
+        border-radius: 8px 8px 0px 0px;
+        text-align: center;
+
+        &.active {
+          color: #fff;
+          background: linear-gradient(180deg, rgba(150, 190, 244, 1) 0%, rgba(93, 137, 230, 1) 100%);
+        }
+      }
+    }
+
+    // &>div {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   padding: 0 10px;
+    //   width: 25%;
+    //   color: #002264;
+    //   font-size: 16px;
+    //   font-weight: 600;
+    //   background: linear-gradient(180deg, rgba(239, 242, 247, 1) 0%, rgba(218, 223, 233, 1) 100%);
+    //   border-radius: 8px 8px 0px 0px;
+    //   text-align: center;
+
+    //   &.active {
+    //     color: #fff;
+    //     background: linear-gradient(180deg, rgba(150, 190, 244, 1) 0%, rgba(93, 137, 230, 1) 100%);
+    //   }
+
+    //   &:nth-of-type(2) {
+    //     width: 40%;
+    //   }
+
+    //   &:nth-of-type(3) {
+    //     width: 30%;
+    //   }
+    // }
+
+  }
+
+  .contact {
+    padding: 20px 16px;
+  }
+
+}

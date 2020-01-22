@@ -1,0 +1,56 @@
+.app {
+  position: relative;
+  min-height: calc(100vh - 50px);
+}
+
+*[class*='btn'] {
+  user-select: none;
+}
+
+// ------------------------
+
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.triangle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid #3b72e1;
+  border-bottom: 6px solid transparent;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  transform: translateY(35%);
+}
+
+.hr {
+  border-bottom: #eff2fb 1px solid;
+}
+
+.el-table .cell {
+  word-break: keep-all !important;
+}
+
+.el-message {
+  width: 100%;
+  top: $height-pc-navi !important;
+  border-radius: 0;
+  border: 0;
+  justify-content: center;
+}
+
+.clear {
+  clear: both;
+}

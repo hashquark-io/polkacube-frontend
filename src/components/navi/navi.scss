@@ -1,0 +1,182 @@
+//
+//
+
+@mixin navi-icon($img) {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  background-image: url($img);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.navi-pc {
+  z-index: 2001;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px 0px rgba(198, 198, 198, 0.5);
+
+  .navi-pc-wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: $width-pc;
+    min-width: $width-pc-container;
+    height: $height-pc-navi;
+  }
+
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+
+    .split-line {
+      margin: 0 20px 0;
+      width: 1px;
+      height: 18px;
+      background: #8493B3;
+    }
+
+    .item {
+      margin-right: 26px;
+      font-weight: 500;
+      cursor: pointer;
+
+      &.lang {
+        margin-right: 0;
+
+        .icon-lang {
+          display: inline-block;
+          @include navi-icon('./img/lang2.svg');
+          margin-top: 2.5px;
+          margin-right: 5px;
+          vertical-align: top;
+        }
+      }
+
+      &.active {
+
+        a,
+        span {
+          color: #0053fb;
+        }
+      }
+
+      a {
+        color: #002264;
+
+        &:hover {
+          color: #0053fb;
+        }
+      }
+
+      &>span {
+        color: #002264;
+
+        &:hover {
+          color: #0053fb;
+        }
+      }
+
+    }
+  }
+
+  .left {
+
+    // border: 1px solid black;
+    .item a.router-link-exact-active {
+      height: $height-pc-navi;
+      line-height: $height-pc-navi;
+
+      // border-bottom: 4px solid #0053fb;
+      &::after {
+        content: " ";
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: #0053fb;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+  }
+
+  .right {
+    overflow: hidden;
+    justify-content: flex-end;
+  }
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+
+    a {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .icon {
+      @include navi-icon('../../assets/img/logo2.svg');
+      width: 100%;
+      height: 28px;
+    }
+
+    img {
+      height: 28px;
+      vertical-align: top;
+    }
+  }
+
+  .sub-title {
+    margin-left: 10px;
+    margin-right: 40px;
+    padding-left: 10px;
+    height: 18px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #7E8AA3;
+    border-left: 1px solid #7E8AA3;
+    opacity: 0.6;
+    transform: translateY(2px);
+  }
+}
+
+
+.popover-navi {
+  top: $height-pc-navi - 12 !important;
+  min-width: 100px;
+  padding: 0;
+
+  .list {
+    border-radius: 4px;
+    line-height: 3;
+    overflow: hidden;
+
+    li {
+
+      a,
+      span,
+      p {
+        display: block;
+        padding: 0 20px;
+        color: #03144B;
+
+        &:hover {
+          background-color: #EAEEF8;
+        }
+
+        span {
+          color: #8493b3;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
