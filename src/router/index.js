@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import locales from '@/i18n/locales'
-import store from '@/store'
 import Polka from '@/views/polka/polka.vue'
 import PolkaDetail from '@/views/polkaDetail/polkaDetail.vue'
 

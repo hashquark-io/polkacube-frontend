@@ -6,8 +6,6 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
-    "qa": "vue-cli-service build --modern",
-    "stage": "vue-cli-service build --modern"
   },
   "dependencies": {
     "@polkadot/util": "^1.6.1",
@@ -43,5 +41,11 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashquark-io/polkacube-frontend.git"
+  },  
+  "author": "hashquark",
+  "license": "(MIT OR Apache-2.0)"  
 }
