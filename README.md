@@ -54,3 +54,7 @@ src/i18n/** used for localizations.
 src/plugin/** used to configure vue third party library that need to be loaded.  
 src/view/** used for pages view.  
 src/store/** used for UI components state management.  
+
+## License
+
+[Apache-2.0](LICENSE)
