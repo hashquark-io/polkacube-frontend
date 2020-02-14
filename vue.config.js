@@ -7,7 +7,7 @@ function resolve(dir) {
 }
 
 //The '127.0.0.1' or 'localhost' direct to container host, you must change it when you run in docker.
-let APP_POLKA_BASE_HOST = '"http://localhost:7001"'
+let APP_POLKA_BASE_HOST = process.env.POLKACUBE_SERVER
 let APP_BUILD_ENV = '"development"'
 
 if (process.env.npm_lifecycle_event === 'build') {

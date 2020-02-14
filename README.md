@@ -4,7 +4,7 @@
 
 ### Prerequisites
 
-Polkacube projects include job, backend and frontend. This project requires to start polkacube job and polkacube backend project first, and modify ./vue.config.js such as APP_POLKA_BASE_HOST variable (backend server URI) and so on.  
+Polkacube projects include job, backend and frontend. This project requires to start polkacube job and polkacube backend project first, and modify .env configuration such as POLKACUBE_SERVER variable (backend server URI) and so on.  
 Node version 10+ is required.
 
 ### Setup
@@ -27,7 +27,7 @@ npm run build
 
 ## Docker image
 
-Modify ./vue.config.js  
+Modify .env configuration 
 
 ```bash
 npm install && npm run build
