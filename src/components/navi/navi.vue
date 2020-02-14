@@ -20,7 +20,7 @@
             <div @click="toggleSubMenu(0)" class="submenu-title">
               <span>PolkaCube</span>
               <span>
-                <span>Kusama CC3</span>
+                <span>Kusama</span>
               </span>
             </div>
           </li>
@@ -75,11 +75,11 @@
           <el-popover popper-class="popover-navi" :close-delay="0" trigger="hover">
             <ul class="list">
               <li>
-                <span>Kusama CC3</span>
+                <span>Kusama</span>
               </li>
             </ul>
             <div slot="reference">
-              <a href="javascript:;">Kusama CC3</a>
+              <a href="javascript:;">Kusama</a>
               <span class="triangle" style="margin-left: 20px;"></span>
             </div>
           </el-popover>
