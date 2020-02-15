@@ -27,12 +27,26 @@ npm run build
 
 ## Docker image
 
-Modify .env configuration 
+### Build A Image and Run
+
+> Modify .env configuration
 
 ```bash
-npm install && npm run build
 docker build -t polkacube_frontend .
-docker run -d -p 80:80 polkacube_frontend 
+docker run -d -p 8080:8080 polkacube_frontend
+```
+
+### Using Image From Docker Hub
+
+```bash
+# Write .env file on your host
+# ==========================
+# Polkacube-backend web server URI
+# The '127.0.0.1' direct to container host, you must change it when you run in docker.
+POLKACUBE_SERVER='"http://10.10.10.10:7001"'
+# ==========================
+
+docker run -d -p 8080:8080 -v [HOST_PATH]/.env:/src/.env hashquarkio/polkacube_frontend
 ```
 
 ## List of dependencies
