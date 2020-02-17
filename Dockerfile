@@ -1,7 +1,5 @@
-FROM docker.io/library/nginx:1-alpine
-
-ADD ./dist/ /usr/share/nginx/html/
-
-EXPOSE 80
-
-ENTRYPOINT ["nginx","-g","daemon off;"]
+FROM node:10.19.0-alpine3.10
+WORKDIR /src
+COPY . .
+RUN npm install
+CMD ["npm","run","serve"]
