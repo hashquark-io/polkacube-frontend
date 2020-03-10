@@ -24,7 +24,7 @@ html.desktop {
       .title {
         font-size: 22px;
         font-weight: 600;
-        color: #002264;
+        color: $color-main;
         line-height: 30px;
       }
     }
@@ -50,20 +50,24 @@ html.desktop {
         position: relative;
 
         .grey {
-          color: #7E8AA3 !important;
+          color: #7e8aa3 !important;
+        }
+        img {
+          width: 14px;
+          height: 14px;
         }
       }
 
       .name-address {
         margin-left: 23px;
-        color: #002264;
+        color: $color-main;
 
-        &>div:nth-of-type(1) {
+        & > div:nth-of-type(1) {
           font-size: 14px;
           font-weight: 600;
         }
 
-        &>div:nth-of-type(2) {
+        & > div:nth-of-type(2) {
           font-size: 12px;
         }
       }
@@ -81,13 +85,11 @@ html.desktop {
     }
 
     .table-row-class-grey * {
-      color: #7E8AA3;
+      color: #7e8aa3;
     }
 
-
     .table-header-cell {
-
-      color: #7E8AA3;
+      color: #7e8aa3;
       border-bottom: none;
 
       &:nth-of-type(5) {
@@ -96,8 +98,7 @@ html.desktop {
     }
 
     .table-body-cell {
-
-      color: #002264;
+      color: $color-main;
       padding: 7px 0;
 
       &:nth-of-type(5) {
@@ -136,43 +137,44 @@ html.mobile {
         position: relative;
 
         .grey {
-          color: #7E8AA3 !important;
+          color: #7e8aa3 !important;
+        }
+        img {
+          margin-right: 7px;
+          width: 14px;
+          height: 14px;
         }
       }
 
       .name-address {
         flex-grow: 1;
         margin-left: 13px;
-        color: #002264;
+        color: $color-main;
 
-        &>div:nth-of-type(1) {
+        & > div:nth-of-type(1) {
           font-size: 14px;
           font-weight: 600;
           white-space: nowrap;
         }
 
-        &>div:nth-of-type(2) {
+        & > div:nth-of-type(2) {
           width: 140px;
           font-size: 12px;
         }
       }
 
       .table-row-class-grey * {
-        color: #7E8AA3;
+        color: #7e8aa3;
       }
 
       .table-header-cell {
-
-        color: #7E8AA3;
+        color: #7e8aa3;
         border-bottom: none;
-
       }
 
       .table-body-cell {
-
-        color: #002264;
+        color: $color-main;
         padding: 7px 0;
-
       }
 
       img.star {

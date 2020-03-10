@@ -23,6 +23,12 @@
                 <span>Kusama</span>
               </span>
             </div>
+            <div class="submenu-item" v-if="isSubMenuDropdown[0]" @click="menuItemClick">
+              <router-link to="/polka">{{ $t('monitor') }}</router-link>
+            </div>
+            <div class="submenu-item" v-if="isSubMenuDropdown[0]" @click="menuItemClick">
+              <router-link to="/polka/proposal">{{ $t('Proposals & Referenda') }}</router-link>
+            </div>
           </li>
         </ul>
       </div>
@@ -86,7 +92,13 @@
         </div>
       </div>
       <div class="right">
-        <div class="split-line" v-if="$route.path === '/'"></div>
+        <div class="item" v-if="$route.path.includes('polka')">
+          <router-link to="/polka">{{ $t('monitor') }}</router-link>
+        </div>
+        <div class="item" v-if="$route.path.includes('polka')">
+          <router-link to="/polka/proposal">{{ $t('Proposals & Referenda') }}</router-link>
+        </div>
+        <div class="split-line"></div>
         <div class="item lang">
           <el-popover popper-class="popover-navi" trigger="hover">
             <ul class="list">

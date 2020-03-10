@@ -8,7 +8,7 @@ html.desktop {
     background-size: 288px;
 
     .grey {
-      color: #7E8AA3;
+      color: $color-1;
     }
 
     .refresh-btn {
@@ -21,18 +21,18 @@ html.desktop {
       height: 28px;
       background: rgba(254, 254, 255, 1);
       border-radius: 4px;
-      color: #3B72E1;
+      color: #3b72e1;
       border: 1px solid rgba(231, 236, 247, 1);
       cursor: pointer;
       transition: border-color 0.3s;
 
-      &>img {
+      & > img {
         width: 13px;
         height: 13px;
       }
 
       &:hover {
-        border-color: #3B72E1;
+        border-color: #3b72e1;
       }
     }
 
@@ -49,7 +49,7 @@ html.desktop {
         display: flex;
         font-size: 22px;
         font-weight: 600;
-        color: #002264;
+        color: $color-main;
 
         .item:first-child {
           margin-right: 10px;
@@ -63,15 +63,14 @@ html.desktop {
           padding: 0 10px;
           height: 52px;
           text-align: center;
-          background: #E3EDFF;
-          box-shadow: 0px 8px 22px 0px #E3EDFF;
+          background: #e3edff;
+          box-shadow: 0px 8px 22px 0px #e3edff;
           border-radius: 4px 4px 0px 0px;
           cursor: pointer;
 
           &.active {
-
-            color: #3B72E1;
-            background: #FDFEFF;
+            color: #3b72e1;
+            background: #fdfeff;
           }
         }
       }
@@ -87,7 +86,7 @@ html.desktop {
           width: 250px;
           height: 28px;
 
-          &>input {
+          & > input {
             padding-left: 10px;
             width: 194px;
             height: 28px;
@@ -99,10 +98,9 @@ html.desktop {
             border-radius: 4px 0 0 4px;
 
             &::-webkit-input-placeholder {
-              color: #7E8AA3;
+              color: $color-1;
             }
           }
-
         }
 
         .search-btn {
@@ -112,17 +110,16 @@ html.desktop {
           width: 52px;
           height: 100%;
           line-height: 28px;
-          color: #3B72E1;
+          color: #3b72e1;
           border: 1px solid rgba(231, 236, 247, 1);
           border-radius: 0 4px 4px 0;
           cursor: pointer;
           transition: border-color 0.3s;
 
           &:hover {
-            border-color: #3B72E1;
+            border-color: #3b72e1;
           }
         }
-
       }
     }
 
@@ -131,7 +128,7 @@ html.desktop {
       padding-left: 15px;
       width: 100%;
       background: #fff;
-      box-shadow: 0px 8px 22px 0px #E3EDFF;
+      box-shadow: 0px 8px 22px 0px #e3edff;
       border-radius: 0 10px 10px 10px;
 
       .loading-btn {
@@ -141,7 +138,7 @@ html.desktop {
         justify-content: center;
         align-items: center;
         font-weight: 400;
-        color: #3B72E1;
+        color: #3b72e1;
         cursor: pointer;
 
         img {
@@ -158,23 +155,21 @@ html.desktop {
 
       .name-address {
         margin-left: 23px;
-        color: #002264;
+        color: $color-main;
 
-        &>div:nth-of-type(1) {
+        & > div:nth-of-type(1) {
           font-size: 14px;
           font-weight: 600;
         }
 
-        &>div:nth-of-type(2) {
+        & > div:nth-of-type(2) {
           font-size: 12px;
         }
       }
-
     }
 
     .table-header-cell {
-
-      color: #7E8AA3;
+      color: $color-1;
       border-bottom: none;
 
       &:nth-of-type(3) {
@@ -183,8 +178,7 @@ html.desktop {
     }
 
     .table-body-cell {
-
-      color: #002264;
+      color: $color-main;
       padding: 7px 0;
 
       &:nth-of-type(3) {
@@ -206,7 +200,7 @@ html.mobile {
     border-radius: 10px;
 
     .grey {
-      color: #7E8AA3;
+      color: $color-1;
     }
 
     .refresh-btn {
@@ -219,10 +213,10 @@ html.mobile {
       height: 28px;
       background: #fff;
       border-radius: 4px;
-      color: #3B72E1;
+      color: #3b72e1;
       border: 1px solid rgba(231, 236, 247, 1);
 
-      &>img {
+      & > img {
         width: 13px;
         height: 13px;
       }
@@ -244,7 +238,7 @@ html.mobile {
         border-radius: 4px;
         border: 1px solid rgba(231, 236, 247, 1);
 
-        &>input {
+        & > input {
           flex: 1;
           padding-left: 10px;
           min-width: 120px;
@@ -255,7 +249,7 @@ html.mobile {
           background: rgba(254, 254, 255, 1);
 
           &::-webkit-input-placeholder {
-            color: #7E8AA3;
+            color: $color-1;
           }
         }
       }
@@ -266,10 +260,9 @@ html.mobile {
         width: 52px;
         height: 100%;
         line-height: 28px;
-        color: #3B72E1;
+        color: #3b72e1;
         border-left: 1px solid rgba(231, 236, 247, 1);
       }
-
     }
 
     .table-comp-wrap {
@@ -283,7 +276,7 @@ html.mobile {
         justify-content: center;
         align-items: center;
         font-weight: 400;
-        color: #3B72E1;
+        color: #3b72e1;
         cursor: pointer;
 
         img {
@@ -300,14 +293,14 @@ html.mobile {
 
       .name-address {
         margin-left: 13px;
-        color: #002264;
+        color: $color-main;
 
-        &>div:nth-of-type(1) {
+        & > div:nth-of-type(1) {
           font-size: 14px;
           font-weight: 600;
         }
 
-        &>div:nth-of-type(2) {
+        & > div:nth-of-type(2) {
           overflow: hidden;
           width: 90px;
           white-space: nowrap;
@@ -315,20 +308,16 @@ html.mobile {
           font-size: 12px;
         }
       }
-
     }
 
     .table-header-cell {
-
-      color: #7E8AA3;
+      color: $color-1;
       border-bottom: none;
     }
 
     .table-body-cell {
-
-      color: #002264;
+      color: $color-main;
       padding: 7px 0;
-
     }
   }
 }

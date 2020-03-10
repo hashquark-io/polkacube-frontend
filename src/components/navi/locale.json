@@ -3,18 +3,24 @@
     "chainTypes": {
       "/polka": "PolkaCube"
     },
+    "monitor": "看板",
+    "Proposals & Referenda": "提案和公投",
     "language": "简体中文"
   },
   "zh-TW": {
     "chainTypes": {
       "/polka": "PolkaCube"
     },
+    "monitor": "看板",
+    "Proposals & Referenda": "提案和公投",
     "language": "繁体中文"
   },
   "en-US": {
     "chainTypes": {
       "/polka": "PolkaCube"
     },
+    "monitor": "Dashboard",
+    "Proposals & Referenda": "Proposals & Referenda",
     "language": "English"
   }
 }

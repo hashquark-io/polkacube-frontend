@@ -75,7 +75,7 @@
     </div>
 
     <div class="table-h5-wrap" v-if="isMobile">
-      <div class="tabs" ref="tabWrap" v-sticky="{ zIndex: 50, stickyTop: 49, disabled: false }">
+      <div class="tabs" ref="tabWrap" v-sticky="{ zIndex: 50, stickyTop: 55, disabled: false }">
         <div class="tab-wrap">
           <div
             v-for="(item, i) in $t('nav')"

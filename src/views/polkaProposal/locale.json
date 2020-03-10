@@ -1,0 +1,17 @@
+{
+  "zh-CN": {
+    "intro": "提案和公投",
+    "info": ["启动期", "当前提案数量", "公投数量"],
+    "nav": ["公投", "提案"]
+  },
+  "zh-TW": {
+    "intro": "提案和公投",
+    "info": ["啟動期", "當前提案數量", "公投數量"],
+    "nav": ["公投", "提案"]
+  },
+  "en-US": {
+    "intro": "Proposals & Referenda",
+    "info": ["Launch Period", "Active Proposals", "Referendums"],
+    "nav": ["Referenda", "Proposals"]
+  }
+}

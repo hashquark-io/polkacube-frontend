@@ -1,0 +1,51 @@
+{
+  "zh-CN": {
+    "Unknown": "未知",
+    "Reasonable": "合理",
+    "Known Good": "良好",
+    "Out of Date": "过期",
+    "Low Quality": "较差",
+    "Erroneous:": "错误",
+    "noJudgement": "无评价",
+    "judgement": "个评价：",
+    "display": "显示名",
+    "legal": "本名",
+    "email": "邮箱 ",
+    "web": "网站",
+    "Twitter": "推特",
+    "Roit": "Roit"
+  },
+  "zh-TW": {
+    "Unknown": "未知",
+    "Reasonable": "合理",
+    "Known Good": "良好",
+    "Out of Date": "過期",
+    "Low Quality": "較差",
+    "Erroneous:": "錯誤",
+    "judgement": "個評價：",
+    "noJudgement": "無評價",
+    "display": "顯示名",
+    "legal": "本名",
+    "email": "郵箱 ",
+    "web": "網站",
+    "Twitter": "推特",
+    "Roit": "Roit"
+  },
+  "en-US": {
+    "Unknown": "Unknown",
+    "Reasonable": "Reasonable",
+    "Known Good": "Known Good",
+    "Out of Date": "Out of Date",
+    "Low Quality": "Low Quality",
+    "Erroneous:": "Erroneous",
+    "judgement": "judgement:",
+    "judgements": "judgements:",
+    "noJudgement": "No judgements",
+    "display": "Display",
+    "legal": "Legal",
+    "email": "Email",
+    "web": "Web",
+    "Twitter": "Twitter",
+    "Roit": "Roit"
+  }
+}

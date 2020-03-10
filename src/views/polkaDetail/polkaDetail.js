@@ -2,10 +2,12 @@ import Identicon from '@polkadot/vue-identicon'
 import slash from '@/components/slash/slash.vue'
 import nominator from '@/components/nominator/nominator.vue'
 import VueSticky from 'vue-sticky'
+import judgementPopover from '@/components/judgementPopover/judgementPopover.vue'
 
 export default {
   components: {
     Identicon,
+    judgementPopover,
     slash,
     nominator
   },
@@ -15,7 +17,11 @@ export default {
   data() {
     return {
       activeInd: 0,
-      info: {}
+      info: {},
+      imgStyle: {
+        width: '18px',
+        margin: '0 10px 0 0'
+      }
     }
   },
   computed: {
@@ -51,12 +57,12 @@ export default {
               a: {
                 fontSize: 14,
                 fontWeight: 600,
-                color: '#002264',
+                color: '#1c1f44',
                 lineHeight: 20
               },
               b: {
                 fontSize: 10,
-                color: '#7E8AA3',
+                color: '#76788f',
                 lineHeight: 14
               }
             }

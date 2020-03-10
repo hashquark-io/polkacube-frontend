@@ -16,7 +16,7 @@
               :theme="'polkadot'"
               :value="item.validatorAddr"
             />
-            <span class="ellipsis">{{ item.validatorName !== null ? item.validatorName : $t('validatorName') }}</span>
+            <span class="ellipsis">{{ validatorName(item.validatorName) }}</span>
           </span>
           <span class="block-3">{{ strSlice(item.validatorAddr, !isMobile ? 14 : 6) }}</span>
         </li>
@@ -74,6 +74,13 @@ export default {
         this.marqueeList.shift()
         this.animate = false
       }, 1000)
+    },
+    validatorName(validatorName) {
+      if (typeof validatorName === 'object') {
+        return validatorName.display ? validatorName.display : this.$t('validatorName')
+      } else {
+        return ''
+      }
     }
   },
   beforeDestroy() {
@@ -123,7 +130,7 @@ html.mobile {
   display: flex;
   align-items: center;
   height: 30px;
-  color: #002264;
+  color: $color-main;
   font-size: 12px;
   background: #f6f9ff;
   border-radius: 15px;
@@ -187,7 +194,7 @@ html.mobile {
 }
 
 .marquee-list li {
-  color: #002264;
+  color: $color-main;
   height: 30px;
   line-height: 30px;
 }

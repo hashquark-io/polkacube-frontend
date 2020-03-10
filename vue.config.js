@@ -54,5 +54,8 @@ module.exports = {
       fallbackLocale: 'en-US',
       localeDir: 'i18n'
     }
+  },
+  devServer: {
+    disableHostCheck: true
   }
 }

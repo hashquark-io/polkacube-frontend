@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -15,7 +16,7 @@ body {
   font-family: $font-family;
   font-size: 14px;
   min-height: 100%;
-  color: #03144b;
+  color: $color-main;
   overflow-y: scroll;
 }
 
@@ -103,3 +104,16 @@ table {
     font-weight: 500;
   }
 }
+
+// ::-webkit-input-placeholder { /* WebKit browsers */
+//   color: $color-light-3;
+// }
+// :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+//   color: $color-light-3;
+// }
+// ::-moz-placeholder { /* Mozilla Firefox 19+ */
+//   color: $color-light-3;
+// }
+// :-ms-input-placeholder { /* Internet Explorer 10+ */
+//   color: $color-light-3;
+// }

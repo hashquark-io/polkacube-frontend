@@ -1,0 +1,41 @@
+{
+  "zh-CN": {
+    "title": "公投",
+    "tableTitle": [
+      "序号",
+      ["提案哈希", "预览哈希"],
+      "剩余",
+      "激活区块",
+      "赞同",
+      "反对"
+    ],
+    "emptyText": "暂无数据",
+    "blocks": "个区块"
+  },
+  "zh-TW": {
+    "title": "公投",
+    "tableTitle": [
+      "序號",
+      ["提案哈希", "預覽哈希"],
+      "剩餘",
+      "激活區塊",
+      "贊同",
+      "反對"
+    ],
+    "emptyText": "暫無數據",
+    "blocks": "個區塊"
+  },
+  "en-US": {
+    "title": "Referenda",
+    "tableTitle": [
+      "Index",
+      ["Proposal hash", "Preimage hash"],
+      "Remaining",
+      "Activate at",
+      "Aye",
+      "Nay"
+    ],
+    "emptyText": "No records",
+    "blocks": "blocks"
+  }
+}

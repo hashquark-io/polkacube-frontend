@@ -138,7 +138,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {

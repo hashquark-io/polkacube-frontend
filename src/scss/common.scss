@@ -54,3 +54,57 @@
 .clear {
   clear: both;
 }
+
+.f-12 {
+  font-size: 12px !important;
+}
+.f-14 {
+  font-size: 14px !important;
+}
+.f-16 {
+  font-size: 16px !important;
+}
+.color-main {
+  color: $color-main !important;
+}
+.color-grey-1 {
+  color: $color-1 !important;
+}
+.text-right {
+  text-align: right;
+}
+
+.judgement-popover,
+.totalBonded-popover {
+  background: rgba(28, 31, 68, 0.92) !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  .popper__arrow::after {
+    border-top-color: rgba(28, 31, 68, 0.92) !important;
+    border-bottom-color: rgba(28, 31, 68, 0.92) !important;
+  }
+}
+.judgement-popover {
+  .judgement {
+    padding-left: 2px;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+
+    .detail {
+      text-align: left;
+      margin-top: 6px;
+      p {
+        span:nth-of-type(1) {
+          display: inline-block;
+          min-width: 51px;
+          color: #76788f;
+        }
+      }
+    }
+  }
+  .loading {
+    text-align: center;
+  }
+}

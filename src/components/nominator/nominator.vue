@@ -78,7 +78,7 @@ export default {
     nominators(val) {
       this.tableData = val
       setTimeout(() => {
-        this.$refs.table.doLayout() // fix firefox and edge
+        this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
       }, 0)
       this.totalNum = val.length
       this.dataLoaded = true

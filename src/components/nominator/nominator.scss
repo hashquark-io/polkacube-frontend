@@ -12,7 +12,6 @@ html.desktop {
       height: 4px;
     }
 
-
     .top {
       display: flex;
       justify-content: space-between;
@@ -21,10 +20,9 @@ html.desktop {
       .title {
         font-size: 22px;
         font-weight: 600;
-        color: #002264;
+        color: $color-main;
         line-height: 30px;
       }
-
     }
 
     .table-comp-wrap {
@@ -50,14 +48,12 @@ html.desktop {
 
       .address {
         margin-left: 23px;
-        color: #002264;
+        color: $color-main;
       }
-
     }
 
     .table-header-cell {
-
-      color: #7E8AA3;
+      color: $color-1;
       border-bottom: none;
 
       &:nth-of-type(3) {
@@ -66,8 +62,7 @@ html.desktop {
     }
 
     .table-body-cell {
-
-      color: #002264;
+      color: $color-main;
       padding: 13px 0;
 
       &:nth-of-type(3) {
@@ -108,24 +103,21 @@ html.mobile {
 
       .address {
         margin-left: 5px;
-        color: #002264;
+        color: $color-main;
         overflow: hidden;
         width: 160px;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-
     }
 
     .table-header-cell {
-
-      color: #7E8AA3;
+      color: $color-1;
       border-bottom: none;
     }
 
     .table-body-cell {
-
-      color: #002264;
+      color: $color-main;
       padding: 13px 0;
     }
   }

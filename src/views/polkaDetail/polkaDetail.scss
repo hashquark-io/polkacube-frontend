@@ -1,12 +1,12 @@
-@mixin font($size: 14px, $fontWeight: 400, $color: #002264) {
+@mixin font($size: 14px, $fontWeight: 400, $color: $color-main) {
   font-size: $size;
   color: $color;
   font-weight: $fontWeight;
 }
 
 .polka-detail.wrapper {
-  background: #F8F9FC;
-  color: #002264;
+  background: #f8f9fc;
+  color: $color-main;
 }
 
 html.desktop {
@@ -21,7 +21,6 @@ html.desktop {
         margin-bottom: 48px;
         @include font(22px, 600);
       }
-
     }
 
     .user-info {
@@ -48,30 +47,27 @@ html.desktop {
           margin-left: 16px;
 
           p:nth-of-type(1) {
-
-            &>span:first-child {
-              margin-right: 25px;
+            .display-name {
+              margin: 0 25px 0 0;
               min-width: 120px;
               line-height: 30px;
-              @include font(22px, 600)
+              @include font(22px, 600);
             }
-
-            &>span:last-child {
+            .rank {
               display: inline-block;
               padding: 0 8px;
               line-height: 20px;
               transform: translateY(-3px);
-              background: linear-gradient(270deg, #E6007A 0%, #F65F7E 100%);
+              background: linear-gradient(270deg, #e6007a 0%, #f65f7e 100%);
               border-radius: 4px;
               @include font(12px, 400, #fff);
             }
           }
 
           p:nth-of-type(2) {
-            @include font(14px, 400, #7E8AA3);
+            @include font(14px, 400, $color-1);
           }
         }
-
       }
 
       .right {
@@ -87,7 +83,7 @@ html.desktop {
           }
 
           p:nth-of-type(2) {
-            @include font(14px, 400, #7E8AA3);
+            @include font(14px, 400, $color-1);
           }
         }
       }
@@ -112,11 +108,11 @@ html.desktop {
 
           .key {
             width: 40%;
-            @include font(12px, 400, #7E8AA3)
+            @include font(12px, 400, $color-1);
           }
 
           .value {
-            @include font(18px)
+            @include font(18px);
           }
         }
 
@@ -137,7 +133,7 @@ html.desktop {
 
           .key {
             margin-bottom: 16px;
-            @include font(12px, 400, #7E8AA3);
+            @include font(12px, 400, $color-1);
           }
         }
       }
@@ -146,7 +142,7 @@ html.desktop {
     .item-wrap {
       &-grey {
         min-width: 1200px;
-        background: #F8F9FC;
+        background: #f8f9fc;
       }
 
       &-white {
@@ -160,11 +156,9 @@ html.desktop {
       width: 1200px;
     }
   }
-
 }
 
 html.mobile {
-
   .polka-detail {
     .info-wrap {
       width: 100%;
@@ -198,19 +192,18 @@ html.mobile {
           margin-left: 16px;
 
           p:nth-of-type(1) {
-
-            &>span:first-child {
-              margin-right: 25px;
+            .display-name {
+              margin: 0 25px 0 0;
+              min-width: 120px;
               line-height: 30px;
-              @include font(22px)
+              @include font(22px, 600);
             }
-
-            &>span:last-child {
+            .rank {
               display: inline-block;
               padding: 0 8px;
               line-height: 20px;
               transform: translateY(-3px);
-              background: linear-gradient(270deg, #E6007A 0%, #F65F7E 100%);
+              background: linear-gradient(270deg, #e6007a 0%, #f65f7e 100%);
               border-radius: 4px;
               @include font(12px, 400, #fff);
             }
@@ -220,10 +213,9 @@ html.mobile {
             padding-right: 16px;
             word-break: break-all;
 
-            @include font(14px, 400, #7E8AA3);
+            @include font(14px, 400, $color-1);
           }
         }
-
       }
 
       .right {
@@ -242,7 +234,7 @@ html.mobile {
           p:nth-of-type(2) {
             padding-right: 16px;
             word-break: break-all;
-            @include font(14px, 400, #7E8AA3);
+            @include font(14px, 400, $color-1);
           }
         }
       }
@@ -263,7 +255,6 @@ html.mobile {
       .chart-text {
         padding: 10px 20px;
 
-
         .item {
           width: 100%;
           height: 37px;
@@ -272,18 +263,18 @@ html.mobile {
           align-items: center;
 
           .key {
-            @include font(14px, 400, #7E8AA3)
+            @include font(14px, 400, $color-1);
           }
 
           .value {
-            @include font(16px, 600)
+            @include font(16px, 600);
           }
         }
       }
 
       .divide-line {
         height: 16px;
-        background: #F8F9FC;
+        background: #f8f9fc;
       }
 
       .info {
@@ -300,7 +291,7 @@ html.mobile {
           @include font(16px, 600);
 
           .key {
-            @include font(14px, 400, #7E8AA3);
+            @include font(14px, 400, $color-1);
           }
         }
       }
@@ -308,11 +299,10 @@ html.mobile {
 
     .item-wrap {
       &-grey {
-        background: #F8F9FC;
+        background: #f8f9fc;
       }
 
       &-white {
-
         background: #fff;
       }
     }
@@ -332,28 +322,36 @@ html.mobile {
       overflow-x: scroll;
       width: 100%;
       height: 38px;
-      background: #F8F9FC;
+      background: #f8f9fc;
 
       .tab-wrap {
         white-space: nowrap;
 
-        &>div {
+        & > div {
           display: inline-flex;
           justify-content: center;
           align-items: center;
           margin: 0 2px;
           padding: 0 16px;
           min-height: 38px;
-          color: #002264;
+          color: $color-main;
           font-size: 16px;
           font-weight: 600;
-          background: linear-gradient(180deg, rgba(239, 242, 247, 1) 0%, rgba(218, 223, 233, 1) 100%);
+          background: linear-gradient(
+            180deg,
+            rgba(239, 242, 247, 1) 0%,
+            rgba(218, 223, 233, 1) 100%
+          );
           border-radius: 8px 8px 0px 0px;
           text-align: center;
 
           &.active {
             color: #fff;
-            background: linear-gradient(180deg, rgba(150, 190, 244, 1) 0%, rgba(93, 137, 230, 1) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(150, 190, 244, 1) 0%,
+              rgba(93, 137, 230, 1) 100%
+            );
           }
         }
       }

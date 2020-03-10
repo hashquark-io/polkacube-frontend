@@ -1,5 +1,5 @@
 .navi-mobile {
-  z-index: 98;
+  z-index: 10000;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   height: $height-h5-navi;
   background-color: #fff;
 
-  &>a {
+  & > a {
     display: inline-block;
   }
 
@@ -28,7 +28,7 @@
       bottom: -2px;
       font-size: 10px;
       line-height: 10px;
-      color: #7E8AA3;
+      color: #7e8aa3;
     }
   }
 
@@ -39,7 +39,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    color: #7E8AA3;
+    color: $color-1;
 
     img {
       width: 16px;
@@ -76,13 +76,12 @@
         overflow-y: scroll;
       }
     }
-
   }
 
   .lang {
     $item-height: 50px;
     padding-left: 18px;
-    color: #7E8AA3;
+    color: $color-1;
     background-color: #fff;
 
     .item {
@@ -101,7 +100,7 @@
   .unit {
     $item-height: 50px;
     padding-left: 18px;
-    color: #7E8AA3;
+    color: $color-1;
     background-color: #fff;
 
     .item,
@@ -115,7 +114,7 @@
       a {
         display: block;
         width: 100%;
-        color: #7E8AA3;
+        color: $color-1;
         height: $item-height;
         line-height: $item-height;
       }
@@ -125,7 +124,6 @@
       }
 
       .submenu-item {
-
         padding: 0 3%;
         min-height: $item-height;
         line-height: $item-height;

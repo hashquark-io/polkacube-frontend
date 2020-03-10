@@ -15,7 +15,7 @@ if (locale) {
   window._config.locale = locale
 } else {
   locale = (window.navigator.language || window.navigator.browserLanguage).toLowerCase()
-  window._config.locale = locale = locale.indexOf('zh') == 0 ? 'zh-CN' : 'en-US'
+  window._config.locale = locale = locale.indexOf('zh') == 0 ? 'zh-TW' : 'en-US'
 }
 
 const i18n = new VueI18n({

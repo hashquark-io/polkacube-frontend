@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import locales from '@/i18n/locales'
 import Polka from '@/views/polka/polka.vue'
 import PolkaDetail from '@/views/polkaDetail/polkaDetail.vue'
+import PolkaProposal from '@/views/polkaProposal/polkaProposal.vue'
 
 import Notfound from '@/views/404/404.vue'
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/polka/detail',
     name: 'polkaDetail',
     component: PolkaDetail
+  },
+  {
+    path: '/polka/proposal',
+    name: 'polkaProposal',
+    component: PolkaProposal
   },
   {
     path: '/*',

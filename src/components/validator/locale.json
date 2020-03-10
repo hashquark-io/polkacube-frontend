@@ -10,11 +10,17 @@
     "tableTitle": ["驗證人", "抵押總額", "佣金", "紀元分", "最近出塊", "收藏"],
     "validatorName": "驗證人",
     "emptyText": "暫無數據"
-
   },
   "en-US": {
     "title": "Validators",
-    "tableTitle": ["Validator", "Bonded", "Commission", "Era Points", "Recent Block", "Favorite"],
+    "tableTitle": [
+      "Validator",
+      "Bonded",
+      "Commission",
+      "Era Points",
+      "Recent Block",
+      "Favorite"
+    ],
     "validatorName": "Validator",
     "emptyText": "No records"
   }

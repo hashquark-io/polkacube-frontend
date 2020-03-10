@@ -27,7 +27,11 @@
               <img src="@/assets/img/offline.png" alt class="status-img" v-else />
               <div class="name-address">
                 <div :class="{ grey: !scope.row.validatorName }">
-                  {{ scope.row.validatorName || $t('validatorName') }}
+                  <judgement-popover
+                    :identity="scope.row.validatorName"
+                    v-if="Object.keys(scope.row.validatorName).length > 0"
+                  />
+                  {{ (scope.row.validatorName && scope.row.validatorName.display) || $t('validatorName') }}
                 </div>
                 <div>{{ isMobile ? strSlice(scope.row.validatorAddr) : scope.row.validatorAddr }}</div>
               </div>
@@ -36,7 +40,12 @@
         </el-table-column>
         <el-table-column prop="totalBondedKsm" :label="$t('tableTitle')[1]" :width="isMobile ? 120 : 180" align="right">
           <template slot-scope="scope">
-            <el-popover placement="top-start" trigger="hover" :content="popverText(scope.row)">
+            <el-popover
+              placement="top-start"
+              :trigger="isMobile ? 'click' : 'hover'"
+              :content="popverText(scope.row)"
+              popper-class="totalBonded-popover"
+            >
               <span slot="reference" class="pointer">{{ scope.row.totalBondedKsm }}</span>
             </el-popover>
           </template>
@@ -70,12 +79,14 @@
 <script>
 import Identicon from '@polkadot/vue-identicon'
 import announcement from '@/components/announcement/announcement.vue'
+import judgementPopover from '@/components/judgementPopover/judgementPopover.vue'
 import { tableResize } from '@/methods/tableMixin'
 export default {
   mixins: [tableResize],
   components: {
     announcement,
-    Identicon
+    Identicon,
+    judgementPopover
   },
   data() {
     return {
@@ -150,7 +161,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {
