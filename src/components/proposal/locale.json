@@ -6,7 +6,7 @@
       ["提案哈希", "预览哈希"],
       "保证金",
       "支持者",
-      "验证人"
+      "账户"
     ],
     "emptyText": "暂无数据"
   },
@@ -17,7 +17,7 @@
       ["提案哈希", "預覽哈希"],
       "保證金",
       "支持者",
-      "驗證人"
+      "賬戶"
     ],
     "emptyText": "暫無數據"
   },
@@ -28,7 +28,7 @@
       ["Proposal hash", "Preimage hash"],
       "Locked",
       "Seconds",
-      "Validator"
+      "Account"
     ],
     "emptyText": "No records"
   }

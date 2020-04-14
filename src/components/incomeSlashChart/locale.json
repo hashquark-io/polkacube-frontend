@@ -1,0 +1,17 @@
+{
+  "zh-CN": {
+    "title": "最近预计收益 & Slash",
+    "legend": ["预计收益", "Slash", "平均收益"]
+
+  },
+  "zh-TW": {
+    "title": "最近預計收益 ＆ Slash",
+    "legend": ["預計收益", "Slash", "平均收益"]
+
+  },
+  "en-US": {
+    "title": "Recent Rewards & Slashes",
+    "legend": ["Estimated rewards", "Slashed", "Average rewards"]
+
+  }
+}

@@ -42,7 +42,7 @@
           <template slot-scope="scope">
             <el-popover
               placement="top-start"
-              :trigger="isMobile ? 'click' : 'hover'"
+              trigger="hover"
               :content="popverText(scope.row)"
               popper-class="totalBonded-popover"
             >
@@ -161,7 +161,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {

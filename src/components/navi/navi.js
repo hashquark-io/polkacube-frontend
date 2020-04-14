@@ -17,6 +17,9 @@ export default {
     language() {
       if (this.locale === 'en-US') return 'EN'
       return this.locale.includes('CN') ? '简中' : '繁中'
+    },
+    chainTypesOther() {
+      return this.chainTypes.filter(t => t[0] !== '/polka')
     }
   },
 

@@ -1,0 +1,305 @@
+.validator-strategy {
+  .main-color {
+    color: $color-main;
+  }
+
+  .grey {
+    color: $color-1;
+  }
+
+  .orange {
+    color: #FA6900;
+  }
+
+  .f-24 {
+    font-size: 24px;
+  }
+
+  .f-16 {
+    font-size: 16px;
+  }
+
+  .fontw5 {
+    font-weight: 500;
+  }
+
+  .m-b-7 {
+    margin-bottom: 7px;
+  }
+}
+
+html.desktop {
+  .validator-strategy {
+    margin: auto;
+    padding: 40px 0 102px;
+    width: 1200px;
+
+    .title {
+      margin-bottom: 12px;
+      padding-left: 24px;
+      height: 62px;
+      line-height: 62px;
+      background: #E9EFFD;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+
+      &>span:nth-of-type(1) {
+        margin-right: 10px;
+        color: #3B72E1;
+        font-size: 22px;
+      }
+    }
+
+    .card {
+      padding: 60px 124px;
+      min-height: 666px;
+      background: #FBFCFF;
+
+      &-title {
+        margin-bottom: 26px;
+        color: $color-main;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      &-input-wrap {
+        display: flex;
+        align-items: center;
+        padding: 0 4px 0 20px;
+        height: 48px;
+        background: #fff;
+        box-shadow: 0px 10px 20px 0px #E3EDFF;
+        border-radius: 2px;
+
+        .icon {
+          width: 20px;
+        }
+
+        .input {
+          flex: 1;
+          padding-left: 20px;
+          color: $color-main;
+          font-size: 16px;
+          border: none;
+          outline: none;
+
+          &::-webkit-input-placeholder {
+            color: $color-1;
+          }
+        }
+
+        .btn {
+          width: 128px;
+          background: #3B72E1;
+          border: none;
+        }
+
+        .btn.disabled {
+          background: #909399;
+        }
+      }
+
+      .no-data {
+        margin-top: 56px;
+        margin-left: 20px;
+        line-height: 40px;
+        color: $color-main;
+
+        &>a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .card-tips {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      height: 108px;
+      background: #fff;
+
+      .daily-income {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 36px 0 20px;
+
+      }
+
+      .left>p:first-child {
+        line-height: 40px;
+      }
+
+
+      .year-income {
+        padding-right: 27px;
+        flex-basis: 145px;
+        text-align: right;
+        border-left: 1px solid #E7EAF0;
+
+      }
+
+    }
+
+    .result {
+      margin-top: 30px;
+      padding-left: 20px;
+      color: $color-main;
+
+      .tips {
+        margin-top: 40px;
+        color: $color-1;
+        font-size: 12px;
+      }
+
+      &>p {
+        margin-bottom: 20px;
+      }
+
+    }
+
+  }
+}
+
+html.mobile {
+  .validator-strategy {
+    margin: auto;
+    padding: 20px 0 102px;
+    width: 100%;
+
+    .title {
+      margin: 0 16px 12px;
+      padding: 0 16px;
+      height: 62px;
+      line-height: 62px;
+      background: #E9EFFD;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+
+      &>span:nth-of-type(1) {
+        margin-right: 10px;
+        color: #3B72E1;
+        font-size: 22px;
+      }
+    }
+
+    .card {
+      margin: 0 16px;
+      padding: 45px 16px;
+      min-height: 387px;
+      text-align: center;
+      background: #FBFCFF;
+
+      &-title {
+        margin-bottom: 26px;
+        color: $color-main;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      &-input-wrap {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        height: 48px;
+        background: #fff;
+        box-shadow: 0px 10px 20px 0px #E3EDFF;
+        border-radius: 2px;
+
+        .icon {
+          width: 20px;
+        }
+
+        .input {
+          padding-left: 20px;
+          width: 710px;
+          color: $color-main;
+          font-size: 16px;
+          border: none;
+          outline: none;
+
+          &::-webkit-input-placeholder {
+            color: $color-1;
+          }
+        }
+      }
+
+      .btn {
+        margin-top: 20px;
+        width: 100%;
+        background: #3B72E1;
+        border: none;
+      }
+
+      .btn.disabled {
+        background: #909399;
+      }
+
+      .no-data {
+        margin-top: 30px;
+        text-align: left;
+        color: $color-main;
+
+        &>a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .card-tips {
+      margin-top: 40px;
+      // height: 108px;
+
+      .top {
+        text-align: left;
+      }
+
+      .income {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        width: 100%;
+        padding: 10px 0;
+        background: #fff;
+      }
+
+      .daily-income {
+        padding-left: 20px;
+        width: 60%;
+        text-align: left;
+        line-height: 24px;
+
+        &>p:last-child {
+          margin-top: 5px;
+        }
+      }
+
+      .year-income {
+        padding-right: 20px;
+        width: 40%;
+        text-align: right;
+        border-left: 1px solid #E7EAF0;
+      }
+    }
+
+    .result {
+      text-align: left;
+      margin-top: 30px;
+      color: $color-main;
+
+      .tips {
+        margin-top: 24px;
+        color: $color-1;
+        font-size: 12px;
+      }
+
+
+    }
+
+  }
+}

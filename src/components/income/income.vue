@@ -20,16 +20,15 @@
         cell-class-name="table-body-cell"
         ref="table"
       >
-        <el-table-column prop="eventID" :label="$t('tableTitle')[0]" :width="isMobile ? '120' : ''"></el-table-column>
         <el-table-column
-          prop="validatorsAmount"
-          :label="$t('tableTitle')[1]"
-          :width="isMobile ? '' : '240'"
-          align="right"
+          prop="currentEra"
+          :label="$t('tableTitle')[0]"
+          :width="isMobile ? '120' : ''"
         ></el-table-column>
+
         <el-table-column
-          prop="treasuryAmount"
-          :label="$t('tableTitle')[2]"
+          prop="amount"
+          :label="$t('tableTitle')[1]"
           :width="isMobile ? '' : '218'"
           align="right"
         ></el-table-column>
@@ -79,7 +78,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {

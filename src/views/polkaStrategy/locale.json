@@ -1,0 +1,20 @@
+{
+  "zh-CN": {
+    "title": "Staking 策略",
+    "desc": "PolkaCube 针对不同的提名人和验证人，及其自定义的资产额度，根据 NPoS 算法、当前网络状态及优化的收益模型设计，给出最佳的抵押和节点搭建策略，并计算出预计的收益数据。",
+    "nomination": ["我是提名人", "将资产抵押给验证节点，获取收益。"],
+    "validator": ["我是验证人", "搭建验证节点，负责出块，接受提名人的抵押，同时获取收益。"]
+  },
+  "zh-TW": {
+    "title": "Staking 策略",
+    "desc": "PolkaCube 針對不同的提名人和驗證人，及其自定義的資產額度，根據NPoS 算法、當前網絡狀態及優化的收益模型設計，給出最佳的抵押和節點搭建策略，併計算出預計的收益數據。",
+    "nomination": ["我是提名人", "將資產抵押給驗證節點，獲取收益。"],
+    "validator": ["我是驗證人", "搭建驗證節點，負責出塊，接受提名人的抵押，同時獲取收益。"]
+  },
+  "en-US": {
+    "title": "Staking Strategy",
+    "desc": "For different nominators and validators and their expected bonding amount, PolkaCube gives the best bond and node setup strategies based on the NPoS algorithm, current network status, and optimized rewards model, and calculates the estimated rewards.",
+    "nomination": ["Nominator", "Bond my assets to validators and get rewards."],
+    "validator": ["Validator", "Set up one or multiple validators, produce blocks, accept bonding tokens and get rewards."]
+  }
+}

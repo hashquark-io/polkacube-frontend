@@ -1,26 +1,23 @@
 {
   "zh-CN": {
     "title": "全网收益记录",
-    "tableTitle": ["事件号", "验证人收益", "财政库收益"],
+    "tableTitle": ["纪元", "收益"],
     "btn": "刷新",
     "loadBtn": "加载更多",
     "emptyText": "暂无数据"
-
   },
   "zh-TW": {
     "title": "全網收益記錄",
-    "tableTitle": ["事件號", "驗證人收益", "財政庫收益"],
+    "tableTitle": ["紀元", "收益"],
     "btn": "刷新",
     "loadBtn": "加載更多",
     "emptyText": "暫無數據"
-
   },
   "en-US": {
     "title": "Reward Records",
-    "tableTitle": ["Event ID", "Validators Reward", "Treasury Reward"],
+    "tableTitle": ["Era", "Reward"],
     "btn": "Refresh",
     "loadBtn": "Load more",
     "emptyText": "No records"
-
   }
 }

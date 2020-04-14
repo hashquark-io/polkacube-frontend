@@ -47,7 +47,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          :prop="activeInd === 1 ? 'eventID' : 'num'"
+          :prop="activeInd === 1 ? 'currentEra' : 'num'"
           :label="(activeInd === 1 ? $t('recordsTitle') : $t('statisticsTitle'))[1]"
           :width="isMobile ? 100 : 180"
           align="right"
@@ -138,7 +138,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {

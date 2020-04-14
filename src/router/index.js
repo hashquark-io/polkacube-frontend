@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
+
 import locales from '@/i18n/locales'
 import Polka from '@/views/polka/polka.vue'
 import PolkaDetail from '@/views/polkaDetail/polkaDetail.vue'
+import PolkaStrategy from '@/views/polkaStrategy/polkaStrategy.vue'
 import PolkaProposal from '@/views/polkaProposal/polkaProposal.vue'
-
 import Notfound from '@/views/404/404.vue'
 
 Vue.use(VueRouter)
@@ -31,6 +33,11 @@ const routes = [
     component: PolkaProposal
   },
   {
+    path: '/polka/strategy/:identity?',
+    name: 'polkaStrategy',
+    component: PolkaStrategy
+  },
+  {
     path: '/*',
     name: 'notfound',
     component: Notfound
@@ -43,6 +50,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   document.querySelector('title').innerText = locales[window._config.locale]['title']
+  store.commit('setFromRoute', from)
   next()
 })
 router.afterEach(() => {

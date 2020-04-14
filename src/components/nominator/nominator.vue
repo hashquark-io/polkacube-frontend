@@ -18,7 +18,7 @@
         cell-class-name="table-body-cell"
         ref="table"
       >
-        <el-table-column prop="validatorAddr" :label="$t('tableTitle')[0]">
+        <el-table-column prop="validatorAddr" :label="$t('tableTitle')[0]" :width="isMobile ? 170 : undefined">
           <template slot-scope="scope">
             <div class="table-col-1">
               <Identicon :size="28" :theme="'polkadot'" :value="scope.row.who" />
@@ -32,7 +32,7 @@
           align="right"
           :width="isMobile ? 110 : 160"
         ></el-table-column>
-        <el-table-column prop="percent" :label="$t('tableTitle')[2]" align="right" :width="isMobile ? 70 : 160">
+        <el-table-column prop="percent" :label="$t('tableTitle')[2]" align="right" :width="isMobile ? undefined : 160">
           <template slot-scope="scope">
             <span>{{ scope.row.percent + '%' }}</span>
           </template>
@@ -78,7 +78,7 @@ export default {
     nominators(val) {
       this.tableData = val
       setTimeout(() => {
-        this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
+        this.$refs.table.doLayout() // fix firefox and edge
       }, 0)
       this.totalNum = val.length
       this.dataLoaded = true

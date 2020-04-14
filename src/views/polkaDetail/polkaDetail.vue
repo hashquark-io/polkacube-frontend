@@ -1,33 +1,56 @@
 <i18n src="./locale.json"></i18n>
 <template>
   <div class="polka-detail wrapper">
-    <div class="info-wrap">
+    <div class="nav-pc" v-if="!isMobile">
+      <div :class="['item', item.active && 'active']" v-for="(item, ind) in navList" :key="ind" @click="navJump(item)">
+        {{ item.text }}
+        <i class="el-icon-arrow-right" v-show="item.active"></i>
+      </div>
+    </div>
+    <div class="info-wrap" ref="validator">
+      <img src="@/assets/img/dot.png" alt class="img-dot" v-if="!isMobile" />
       <p class="title">{{ $t('title') }}</p>
       <div class="user-info">
         <div class="left">
-          <Identicon :size="60" :theme="'polkadot'" :value="info.validatorAddr" />
-          <img src="@/assets/img/online.png" alt class="status-icon" v-if="+info.online" />
-          <img src="@/assets/img/offline.png" alt class="status-icon" v-else />
-          <div class="name-address">
-            <p>
-              <judgement-popover
-                :identity="info.validatorName"
-                v-if="info.validatorName && Object.keys(info.validatorName).length > 0"
-                :imgStyle="imgStyle"
-              />
-              <span class="display-name">{{
-                info.validatorName && info.validatorName.display ? info.validatorName.display : $t('title')
-              }}</span>
-              <span class="rank">{{ rank }}</span>
-            </p>
-            <p>{{ info.validatorAddr }}</p>
+          <div class="top">
+            <Identicon :size="36" :theme="'polkadot'" :value="info.validatorAddr" />
+            <img src="@/assets/img/online.png" alt class="status-icon" v-if="+info.online" />
+            <img src="@/assets/img/offline.png" alt class="status-icon" v-else />
+            <div class="name-address">
+              <p>
+                <span class="display-name">{{
+                  info.validatorName && info.validatorName.display ? info.validatorName.display : $t('title')
+                }}</span>
+                <span class="rank">{{ rank }}</span>
+              </p>
+              <p>{{ info.validatorAddr }}</p>
+            </div>
+          </div>
+          <div class="bottom">
+            <Identicon :size="36" :theme="'polkadot'" value="HTrpbES27bqMvCioQGHpmJbBzwji6V5DeuXUfB1gsZ5Vkh1" />
+            <div class="name-address">
+              <p>Controller</p>
+              <p>{{ info.controllerAddr }}</p>
+            </div>
           </div>
         </div>
-        <div class="right">
-          <Identicon :size="36" :theme="'polkadot'" value="HTrpbES27bqMvCioQGHpmJbBzwji6V5DeuXUfB1gsZ5Vkh1" />
-          <div class="name-address">
-            <p>Controller</p>
-            <p>{{ info.controllerAddr }}</p>
+        <div class="right" v-show="showJudgement">
+          <div class="judgement">
+            <p class="title" v-if="identityInfo.judgements">
+              <img :src="curImg" :style="imgStyle" class="icon-judgement" />
+              {{ identityInfo.judgementsNum }}
+              {{ locale === 'en-US' && identityInfo.judgementsNum > 1 ? $t('judgements') : $t('judgement')
+              }}{{ identityInfo.judgementsDesc }}
+            </p>
+            <p class="title" v-else>
+              <img :src="curImg" :style="imgStyle" class="icon-judgement" />
+              {{ $t('noJudgement') }}
+            </p>
+            <div class="detail" v-if="identityInfo.list && identityInfo.list.length > 0">
+              <p v-for="(item, ind) in identityInfo.list" :key="ind">
+                <span class="label">{{ $t(item[0]) }} </span><span class="value">{{ item[1] }}</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -60,18 +83,28 @@
         </div>
       </div>
     </div>
-    <div class="item-wrap-white" v-if="!isMobile">
+    <div class="item-wrap-white" v-if="!isMobile" ref="nominator">
       <div class="content">
         <nominator :nominators="info.nominators || []" />
       </div>
     </div>
-    <div class="item-wrap-grey" v-if="!isMobile">
+    <div class="item-wrap-grey" v-if="!isMobile" ref="slash">
       <div class="content">
         <slash :autoRefresh="false" :addr="$route.query.id" />
       </div>
     </div>
+    <div class="item-wrap-white" v-if="!isMobile" ref="blockChart">
+      <div class="content">
+        <block-chart />
+      </div>
+    </div>
+    <div class="item-wrap-grey" v-if="!isMobile" ref="incomeSlashChart">
+      <div class="content">
+        <income-slash-chart />
+      </div>
+    </div>
 
-    <div class="table-h5-wrap" v-if="isMobile">
+    <div class="table-h5-wrap" v-if="isMobile" ref="tableH5Wrap">
       <div class="tabs" ref="tabWrap" v-sticky="{ zIndex: 50, stickyTop: 55, disabled: false }">
         <div class="tab-wrap">
           <div

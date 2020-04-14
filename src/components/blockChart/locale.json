@@ -1,0 +1,14 @@
+{
+  "zh-CN": {
+    "title": "纪元分",
+    "legend": ["纪元分", "平均纪元分"]
+  },
+  "zh-TW": {
+    "title": "紀元分",
+    "legend": ["紀元分", "平均紀元分"]
+  },
+  "en-US": {
+    "title": "Era Points",
+    "legend": ["Era Points", "Averge points"]
+  }
+}

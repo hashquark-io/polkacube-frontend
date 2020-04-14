@@ -6,7 +6,7 @@ const polkaPrefix = `${APP_POLKA_BASE_HOST}/api/v1`
 const url = {
   // polka
   validator: `${polkaPrefix}/validator`,
-  identity: `${polkaPrefix}/validator/identity/`, // /api/v1/validator/identity/:accountId
+  identity: `${polkaPrefix}/identity`, // /api/v1/validator/identity/:accountId
 
   token: `${polkaPrefix}/token`,
   reward: `${polkaPrefix}/reward`,
@@ -15,6 +15,13 @@ const url = {
   accountSlashStatistics: `${polkaPrefix}/slash-accountId`, // 验证人详情页 slash 统计
   tokenValidator: `${polkaPrefix}/token-validator`,
   finalizeNumber: `${polkaPrefix}/finalize-number`,
+  point: `${polkaPrefix}/point`,
+  slashReward: `${polkaPrefix}/slash-reward`,
+
+  //polka strategy
+  node: `${polkaPrefix}/node`,
+  nomination: `${polkaPrefix}/nomination`,
+  //polka referendums proposal
 
   overview: `${polkaPrefix}/democracy/overview`,
   referendums: `${polkaPrefix}/democracy/referendums`,

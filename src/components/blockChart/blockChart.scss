@@ -1,0 +1,60 @@
+html.desktop {
+  .block-chart-comp-wrap {
+    position: relative;
+    padding: 95px 0 0;
+    min-height: 748px;
+    // height: calc(100vh - 50px);
+    background: url('../../assets/img/validator-bg.png') no-repeat 107px 59px;
+    background-size: 289px;
+
+    .img-dot {
+      width: 34px;
+      height: 4px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+        color: $color-main;
+        line-height: 30px;
+      }
+    }
+
+    .chart-wrap {
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 10px;
+      background: rgba(253, 254, 255, 1);
+      box-shadow: 0px 8px 22px 0px #e3edff;
+      overflow: hidden;
+      .chart {
+        height: 480px;
+      }
+    }
+  }
+}
+
+html.mobile {
+  .block-chart-comp-wrap {
+    padding-top: 10px;
+    min-height: 500px;
+    border-radius: 10px;
+    background: #fff;
+
+    .chart-wrap {
+      width: 100%;
+      height: 360px;
+
+      .chart {
+        height: 360px;
+      }
+
+      // border-radius: 10px;
+    }
+  }
+}

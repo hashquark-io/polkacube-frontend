@@ -1,0 +1,47 @@
+{
+  "zh-CN": {
+    "title": "Staking 策略",
+    "subTitle": "我是验证人",
+    "inputTitle": "期望抵押数量（KSM）",
+    "inputPlaceholder": "请输入数量",
+    "btn": "计 算",
+    "cardLabel": ["预计收益为：", "Staking 策略模型表明，按照以下结果进节点搭建和抵押时可获得较高收益。", "每日总收益", "年化收益率"],
+    "tips1": "注：以上结果为方便计算，暂未考虑点搭建的硬件和人力等成本。",
+    "tips2": "您输入的抵押金额过小，搭建节点后无法成功被选中为验证人，请输入一个更大的金额，或选择",
+    "link": " 我是提名人",
+    "punctuation": "。",
+    "resultLabel": ["节点数量：", "每个节点抵押数量："],
+    "invalideNum": "超出最大数量 10,000,000。",
+    "timeout": "请求超时"
+  },
+  "zh-TW": {
+    "title": "Staking 策略",
+    "subTitle": "我是驗證人",
+    "inputTitle": "期望抵押數量（KSM）",
+    "inputPlaceholder": "請輸入數量",
+    "btn": "計 算",
+    "cardLabel": ["預計收益為：", "Staking 策略模型表明，按照以下結果進節點搭建和抵押時可獲得較高收益。", "每日總收益", "年化收益率"],
+    "tips1": "注：以上結果為方便計算，暫未考慮點搭建的硬件和人力等成本。",
+    "tips2": "您輸入的抵押金額過小，搭建節點後無法成功被選中為驗證人，請輸入一個更大的金額，或選擇",
+    "link": " 我是提名人",
+    "punctuation": "。",
+    "resultLabel": ["節點數量：", "每個節點抵押數量："],
+    "invalideNum": "超出最大數量 10,000,000。",
+    "timeout": "請求超時"
+  },
+  "en-US": {
+    "title": "Staking Strategy",
+    "subTitle": "I am Validator",
+    "inputTitle": "Expected bonding amount (KSM)",
+    "inputPlaceholder": "Enter an amount",
+    "btn": "Calculate",
+    "cardLabel": ["Estimated Rewards:", "Staking strategy model indicates that higher rewards can be obtained when validators are setup and bonded as follow.", "Total Daily Rewards", "ROI"],
+    "tips1": "Note: The cost of hardware and labor is not considered in the above results for the convenience of calculation.",
+    "tips2": "The bonding amount you entered is too small to be selected as a validator. Please enter a larger amount, or choose ",
+    "link": " I am Nominator",
+    "punctuation": ".",
+    "resultLabel": ["Number of Validators:", "Amount Bonded per Validator:"],
+    "invalideNum": "Exceeded max amount 10,000,000.",
+    "timeout": "Request timeout"
+  }
+}

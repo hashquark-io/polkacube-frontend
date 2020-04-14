@@ -219,7 +219,7 @@ html.mobile .proposal-comp-wrap {
     width: 100%;
     padding-bottom: 20px;
     .index {
-      min-width: 49px;
+      min-width: 46px;
       font-size: 22px;
       font-weight: 300;
       color: $color-main;
@@ -227,7 +227,7 @@ html.mobile .proposal-comp-wrap {
       float: left;
     }
     .proposal-hash-wrap {
-      padding-left: 49px;
+      padding-left: 46px;
       .title {
         margin-bottom: 3px;
         font-size: 12px;
@@ -275,10 +275,10 @@ html.mobile .proposal-comp-wrap {
           height: 32px;
         }
         .content {
-          padding-left: 32px;
           font-size: 12px;
           line-height: 17px;
           padding: 10px 15px 0 0;
+          padding-left: 46px;
           height: 54px;
           .num {
             margin-top: 3px;
@@ -308,10 +308,10 @@ html.mobile .proposal-comp-wrap {
         float: left;
       }
       & > div:last-child {
-        padding-left: 40px;
-        .id-text {
-          padding-left: 5px;
-        }
+        padding-left: 46px;
+        // .id-text {
+        //   padding-left: 5px;
+        // }
       }
     }
   }

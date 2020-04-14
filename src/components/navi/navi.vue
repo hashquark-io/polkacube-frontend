@@ -29,6 +29,14 @@
             <div class="submenu-item" v-if="isSubMenuDropdown[0]" @click="menuItemClick">
               <router-link to="/polka/proposal">{{ $t('Proposals & Referenda') }}</router-link>
             </div>
+            <div class="submenu-item" v-if="isSubMenuDropdown[0]" @click="menuItemClick">
+              <router-link to="/polka/strategy">{{ $t('strategy') }}</router-link>
+            </div>
+          </li>
+          <li class="item">
+            <a :href="`https://www.hashquark${envSuffix}.io/#/`" target="_blank" rel="noopener noreferrer">{{
+              $t('kuangchi')
+            }}</a>
           </li>
         </ul>
       </div>
@@ -92,13 +100,22 @@
         </div>
       </div>
       <div class="right">
+        <div class="item" v-if="$route.path === '/'">
+          <a :href="`https://www.hashquark${envSuffix}.io/#/`" target="_blank" rel="noopener noreferrer">{{
+            $t('kuangchi')
+          }}</a>
+        </div>
         <div class="item" v-if="$route.path.includes('polka')">
           <router-link to="/polka">{{ $t('monitor') }}</router-link>
         </div>
         <div class="item" v-if="$route.path.includes('polka')">
           <router-link to="/polka/proposal">{{ $t('Proposals & Referenda') }}</router-link>
         </div>
-        <div class="split-line"></div>
+        <div class="item" v-if="$route.path.includes('polka')">
+          <router-link to="/polka/strategy">{{ $t('strategy') }}</router-link>
+        </div>
+
+        <div class="split-line" v-if="$route.path === '/'"></div>
         <div class="item lang">
           <el-popover popper-class="popover-navi" trigger="hover">
             <ul class="list">

@@ -4,8 +4,19 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 window.store = new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    fromRoute: {},
+    nominatorStrategyInfo: []
+  },
+
+  mutations: {
+    setNominatorStrategyInfo(state, val) {
+      state.nominatorStrategyInfo = val
+    },
+    setFromRoute(state, val) {
+      state.fromRoute = val
+    }
+  },
   actions: {}
 })
 

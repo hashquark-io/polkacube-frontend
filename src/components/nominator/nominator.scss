@@ -12,6 +12,7 @@ html.desktop {
       height: 4px;
     }
 
+
     .top {
       display: flex;
       justify-content: space-between;
@@ -23,6 +24,7 @@ html.desktop {
         color: $color-main;
         line-height: 30px;
       }
+
     }
 
     .table-comp-wrap {
@@ -50,9 +52,11 @@ html.desktop {
         margin-left: 23px;
         color: $color-main;
       }
+
     }
 
     .table-header-cell {
+
       color: $color-1;
       border-bottom: none;
 
@@ -62,6 +66,7 @@ html.desktop {
     }
 
     .table-body-cell {
+
       color: $color-main;
       padding: 13px 0;
 
@@ -109,14 +114,17 @@ html.mobile {
         white-space: nowrap;
         text-overflow: ellipsis;
       }
+
     }
 
     .table-header-cell {
+
       color: $color-1;
       border-bottom: none;
     }
 
     .table-body-cell {
+
       color: $color-main;
       padding: 13px 0;
     }

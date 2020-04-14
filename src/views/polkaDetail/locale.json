@@ -9,11 +9,32 @@
     "info": ["佣金", "纪元分", "最近出块"],
     "nav": [
       "提名人",
-      "Slash记录",
+      "Slash 记录",
       "Slash 统计",
-      "最近出块",
+      "纪元分",
       "最近预计收益 & Slash"
-    ]
+    ],
+    "navPc": [
+      "验证人",
+      "提名人",
+      "Slash 记录",
+      "纪元分",
+      "最近预计收益 & Slash"
+    ],
+    "Unknown": "未知",
+    "Reasonable": "合理",
+    "Known Good": "良好",
+    "Out of Date": "过期",
+    "Low Quality": "较差",
+    "Erroneous:": "错误",
+    "noJudgement": "无评价",
+    "judgement": "个评价：",
+    "display": "显示名",
+    "legal": "本名",
+    "email": "邮箱 ",
+    "web": "网站",
+    "twitter": "推特",
+    "riot": "Riot"
   },
   "zh-TW": {
     "title": "驗證人",
@@ -25,11 +46,32 @@
     "info": ["佣金", "紀元分", "最近出塊"],
     "nav": [
       "提名人",
-      "Slash記錄",
+      "Slash 記錄",
       "Slash 統計",
-      "最近出塊",
+      "紀元分",
       "最近預計收益 ＆ Slash"
-    ]
+    ],
+    "navPc": [
+      "驗證人",
+      "提名人",
+      "Slash 記錄",
+      "紀元分",
+      "最近預計收益 ＆ Slash"
+    ],
+    "Unknown": "未知",
+    "Reasonable": "合理",
+    "Known Good": "良好",
+    "Out of Date": "過期",
+    "Low Quality": "較差",
+    "Erroneous:": "錯誤",
+    "judgement": "個評價：",
+    "noJudgement": "無評價",
+    "display": "顯示名",
+    "legal": "本名",
+    "email": "郵箱 ",
+    "web": "網站",
+    "twitter": "推特",
+    "riot": "Riot"
   },
   "en-US": {
     "title": "Validator",
@@ -43,8 +85,30 @@
       "Nominators",
       "Slashing Records",
       "Statistics",
-      "Recent Blocks Produced",
+      "Era Points",
       "Recent Rewards & Slashes"
-    ]
+    ],
+    "navPc": [
+      "Validator",
+      "Nominators",
+      "Slashing Records",
+      "Era Points",
+      "Recent Rewards & Slashes"
+    ],
+    "Unknown": "Unknown",
+    "Reasonable": "Reasonable",
+    "Known Good": "Known Good",
+    "Out of Date": "Out of Date",
+    "Low Quality": "Low Quality",
+    "Erroneous:": "Erroneous",
+    "judgement": "judgement:",
+    "judgements": "judgements:",
+    "noJudgement": "No judgements",
+    "display": "Display",
+    "legal": "Legal",
+    "email": "Email",
+    "web": "Web",
+    "twitter": "Twitter",
+    "riot": "Riot"
   }
 }
