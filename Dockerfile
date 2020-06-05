@@ -1,9 +1,9 @@
-FROM node:10-alpine
-RUN apk update && apk add tzdata python make gcc g++ git libusb \
-&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-&& echo "Asia/Shanghai" > /etc/timezone \
-&& rm -rf /var/cache/apk/*
+FROM node:10
 WORKDIR /src
 COPY . .
-RUN npm install
+RUN apt update \
+ && apt install libusb-1.0 -y \
+ && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+ && npm rebuild node-sass \
+ && npm install
 CMD ["npm","run","serve"]
