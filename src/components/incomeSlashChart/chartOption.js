@@ -9,7 +9,7 @@ export const chartOption = {
     trigger: 'axis',
     backgroundColor: '#FFF',
     textStyle: {
-      color: '$color-1'
+      color: '#76788f'
     },
     extraCssText: 'box-shadow:0px 6px 10px 0px rgba(0,0,0,0.2); padding: 10px 19px; line-height: 28px;'
   },

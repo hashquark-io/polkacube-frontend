@@ -21,7 +21,7 @@ body {
 
 html.desktop {
   body {
-    line-height: 24px;
+    line-height: 20px;
     padding-top: $height-pc-navi;
   }
 }
@@ -80,7 +80,7 @@ a {
 
   &:hover {
     cursor: pointer;
-    color: #3b72e1;
+    color: $color-2;
     transition: all 0.3s;
   }
 }

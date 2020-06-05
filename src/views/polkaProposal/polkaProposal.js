@@ -1,9 +1,8 @@
-import proposal from '@/components/proposal/proposal.vue'
-import referendums from '@/components/referendums/referendums.vue'
+import proposal from './components/proposal/proposal.vue'
+import referendums from './components/referendums/referendums.vue'
 
-// import { thousandth } from '@/methods/util'
+import { loadSocket } from '@/methods/util'
 import VueSticky from 'vue-sticky'
-let socket = null
 export default {
   components: {
     proposal,
@@ -28,9 +27,7 @@ export default {
       return progress ? `${(progress * 100) / launchPeriod}%` : 0
     }
   },
-  created() {
-    // eslint-disable-next-line no-undef
-    window.socket = socket || (socket = window.io.connect(APP_POLKA_BASE_HOST))
+  mounted() {
     this.initSocket()
     this.queryData()
     this.startTimer()
@@ -40,12 +37,14 @@ export default {
       return this.activeInd === ind
     },
     initSocket() {
+      // eslint-disable-next-line no-undef
+      loadSocket(this.network)
       let id = Math.random()
       const self = this
-      socket.on('finalizedHeaderChange', function(data) {
+      window.socket.on('finalizedHeaderChange', function(data) {
         const { launchPeriod } = self.polkaInfo
         self.polkaInfo.progress = (data.height % launchPeriod) + 1
-        socket.emit('server', id)
+        window.socket.emit('server', id)
       })
     },
     queryData() {
@@ -68,5 +67,7 @@ export default {
   beforeDestroy() {
     clearInterval(this.timer1)
     this.timer1 = null
+    window.socket?.close()
+    window.socket = null
   }
 }

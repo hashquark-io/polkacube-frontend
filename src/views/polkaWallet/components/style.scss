@@ -1,0 +1,280 @@
+html.desktop .dialog-wallet {
+  color: $color-main;
+  min-height: 300px;
+  padding-bottom: 30px;
+  // padding: 56px 176px;
+
+  .title {
+    margin-bottom: 24px;
+    font-weight: 600;
+    line-height: 25px;
+    font-size: 20px;
+  }
+  .account-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 14px;
+    height: 86px;
+    background: $color-5;
+  }
+  .account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 58px;
+    background: #fff;
+    padding: 0 42px 0 20px;
+    // &.send-account,
+    // &.result {
+    //   background: $color-5;
+    //   padding-right: 55px;
+    // }
+    .left {
+      display: flex;
+      align-items: center;
+      .avatar {
+        margin-right: 10px;
+        height: 38px;
+      }
+    }
+    .right {
+      flex: 1;
+      height: 41px;
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .name {
+        font-weight: 500;
+        line-height: 24px;
+      }
+      .address {
+        font-size: 12px;
+        line-height: 17px;
+        text-align: left;
+      }
+      .label {
+        margin-right: 8px;
+        font-size: 12px;
+        color: $color-3;
+      }
+      .value {
+        font-weight: 500;
+        line-height: 20px;
+      }
+    }
+  }
+  .account-wrap.drop {
+    display: flex;
+    align-items: center;
+    .input-wrap {
+      position: relative;
+      border: 1px solid $color-6;
+      border-radius: 4px;
+    }
+    .input-address {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      appearance: none;
+      outline: none;
+      border: none;
+      padding-left: 16px;
+      padding-right: 60px;
+    }
+    .img-wrap {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -20px;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      line-height: 40px;
+      pointer-events: none;
+    }
+  }
+  .no-data {
+    line-height: 60px;
+    padding-left: 16px;
+  }
+  .icon {
+    transition: all 0.3s;
+  }
+  .icon-rotate {
+    transform: rotate(-180deg);
+  }
+  .sub-title {
+    color: $color-1;
+    padding: 10px 0 9px;
+  }
+  .dialog-input-wrap {
+    position: relative;
+    border: 1px solid $color-6;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s;
+    &:focus-within {
+      border-color: $color-2;
+    }
+    .input {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      appearance: none;
+      outline: none;
+      border: none;
+      padding-left: 16px;
+      padding-right: 120px;
+      font-size: 14px;
+      color: $color-main;
+      background: #fefeff;
+    }
+    @include input-placeholder($color-3);
+
+    .input-suffix {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      line-height: 40px;
+      pointer-events: none;
+    }
+  }
+  .tips-fee {
+    color: $color-1;
+    margin: 10px 0 20px;
+    line-height: 20px;
+    span:first-child {
+      margin-right: 24px;
+    }
+  }
+  .btn-send {
+    margin: 40px auto 0;
+    width: 240px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 4px;
+    color: #fff;
+    background: $color-2;
+    cursor: pointer;
+    &.disabled {
+      background: $color-3;
+    }
+  }
+  .icon-refresh {
+    animation: infiniteRotate 1.6s infinite linear;
+  }
+  .tips {
+    margin-top: 11px;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+    color: #f5ab43;
+  }
+}
+html.desktop .dialog-wallet {
+  &.receive {
+    .address-copy {
+      img {
+        vertical-align: text-top;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@keyframes infiniteRotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.account-dropdown {
+  width: 564px !important;
+  max-height: 274px;
+  overflow-y: auto;
+  .el-dropdown-menu__item:focus,
+  .el-dropdown-menu__item:not(.is-disabled):hover {
+    background-color: $color-5;
+    color: $color-main;
+  }
+  .el-dropdown-item-active {
+    background: $color-7 !important;
+  }
+  .item-header {
+    padding: 8px 0;
+    font-weight: 500;
+    color: $color-1;
+    line-height: 20px;
+  }
+
+  .account-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 58px;
+    .left {
+      display: flex;
+      align-items: center;
+      .avatar {
+        margin-right: 10px;
+        height: 38px;
+      }
+    }
+    .right {
+      flex: 1;
+      height: 41px;
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 20px;
+      }
+      .name {
+        font-weight: 500;
+        line-height: 24px;
+      }
+      .address {
+        font-size: 12px;
+        line-height: 17px;
+        text-align: left;
+      }
+      .label {
+        margin-right: 8px;
+        font-size: 12px;
+        color: $color-3;
+      }
+      .value {
+        font-weight: 500;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.reward-method-popover {
+  .el-select-dropdown__item {
+    color: $color-main;
+    height: 40px;
+    line-height: 40px;
+  }
+  .el-select-dropdown__item.selected {
+    color: $color-2;
+    font-weight: 400;
+  }
+  .el-select-dropdown__item.hover {
+    background: $color-5;
+  }
+}

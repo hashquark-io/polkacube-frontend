@@ -4,7 +4,7 @@ export default {
     return {
       link: {
         hub: 'https://hub.hashkey.com/',
-        group: 'https://www.hashkey.com/#/'
+        pro: 'https://pro.hashkey.com/'
       }
     }
   }

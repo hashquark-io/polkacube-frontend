@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
+import { MsgClose } from '@/methods/message'
+import { loadConfig } from '@/config'
 
-import locales from '@/i18n/locales'
 import Polka from '@/views/polka/polka.vue'
 import PolkaDetail from '@/views/polkaDetail/polkaDetail.vue'
 import PolkaStrategy from '@/views/polkaStrategy/polkaStrategy.vue'
 import PolkaProposal from '@/views/polkaProposal/polkaProposal.vue'
+import Wrap from '@/views/polkaWallet/wrap.vue'
+
 import Notfound from '@/views/404/404.vue'
 
 Vue.use(VueRouter)
@@ -14,28 +17,37 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/polka'
+    redirect: '/polkadot-cc1'
   },
-
   {
-    path: '/polka',
+    path: '/(polkadot-cc1|kusama)',
     name: 'polka',
     component: Polka
   },
   {
-    path: '/polka/detail',
+    path: '/(polkadot-cc1|kusama)/detail',
     name: 'polkaDetail',
     component: PolkaDetail
   },
   {
-    path: '/polka/proposal',
+    path: '/(polkadot-cc1|kusama)/strategy/:identity?',
+    name: 'polkaStrategy',
+    component: PolkaStrategy
+  },
+  {
+    path: '/(polkadot-cc1|kusama)/proposal',
     name: 'polkaProposal',
     component: PolkaProposal
   },
   {
-    path: '/polka/strategy/:identity?',
-    name: 'polkaStrategy',
-    component: PolkaStrategy
+    path: '/(polkadot-cc1|kusama)/account',
+    name: 'polkaWalletAccount',
+    component: Wrap
+  },
+  {
+    path: '/(polkadot-cc1|kusama)/staking',
+    name: 'polkaWalletStaking',
+    component: Wrap
   },
   {
     path: '/*',
@@ -48,9 +60,26 @@ const router = new VueRouter({
   routes
 })
 
+const init = network => {
+  Vue.ls.clear()
+  loadConfig(network)
+  window.socket?.close()
+  window.socket = null
+  store.commit('resetApiStatus')
+  store.commit('forceUpdate')
+}
 router.beforeEach((to, from, next) => {
-  document.querySelector('title').innerText = locales[window._config.locale]['title']
+  const prevNetwork = from.params.pathMatch
+  const network = to.params.pathMatch
+  if (network !== prevNetwork) {
+    init(network)
+  }
+  document.querySelector('title').innerText = window.localeMsg[window._config.locale]['polkaTitle']
+  document.querySelector('body').setAttribute('data-view', to.name)
   store.commit('setFromRoute', from)
+  if (!to?.name?.includes('polkaWallet')) {
+    MsgClose()
+  }
   next()
 })
 router.afterEach(() => {

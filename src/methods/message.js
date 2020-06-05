@@ -1,9 +1,23 @@
 import Vue from 'vue'
 import { Message } from 'element-ui'
 
-Vue.prototype.$message = Message
+Vue.prototype.$msg = Message
 
-Vue.prototype.$message.error = function(msg) {
+export function Msg(msg, option = {}) {
+  changeNavZindex(true)
+  Message({
+    message: msg,
+    onClose() {
+      changeNavZindex(false)
+    },
+    ...option
+  })
+}
+export function MsgClose() {
+  Message.closeAll()
+}
+
+Vue.prototype.$msg.error = function(msg) {
   changeNavZindex(true)
   Message({
     type: 'error',
@@ -14,7 +28,7 @@ Vue.prototype.$message.error = function(msg) {
   })
 }
 
-Vue.prototype.$message.success = function(msg) {
+Vue.prototype.$msg.success = function(msg) {
   changeNavZindex(true)
   Message({
     type: 'success',

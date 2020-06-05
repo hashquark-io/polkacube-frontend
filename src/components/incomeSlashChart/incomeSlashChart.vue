@@ -1,9 +1,8 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="income-slash-chart-comp-wrap">
     <img src="@/assets/img/dot.png" alt class="img-dot" v-if="!isMobile" />
     <div class="top" v-if="!isMobile">
-      <div class="title">{{ $t('title') }}</div>
+      <div class="title">{{ $t('incomeSlashChartComp.title') }}</div>
     </div>
     <div class="chart-wrap" v-loading="chartLoading">
       <div class="chart" ref="chart"></div>
@@ -33,7 +32,7 @@ export default {
     },
     initChart(data) {
       const option = deepClone(chartOption)
-      option.legend.data = Object.values(this.$t('legend'))
+      option.legend.data = Object.values(this.$t('incomeSlashChartComp.legend'))
       option.xAxis.data = data.map(t => t.currentEra)
 
       const data1 = data.map(t => t.reward)
@@ -44,11 +43,11 @@ export default {
         this.calcMaxMin([...data1, ...data2, ...data3], option, 0)
       }
       option.series[0].data = data1
-      option.series[0].name = this.$t('legend')[0]
+      option.series[0].name = this.$t('incomeSlashChartComp.legend')[0]
       option.series[1].data = data2
-      option.series[1].name = this.$t('legend')[1]
+      option.series[1].name = this.$t('incomeSlashChartComp.legend')[1]
       option.series[2].data = data3
-      option.series[2].name = this.$t('legend')[2]
+      option.series[2].name = this.$t('incomeSlashChartComp.legend')[2]
       if (this.isMobile) {
         option.legend.left = 15
         option.legend.top = 15
@@ -81,6 +80,9 @@ export default {
         option.yAxis[ind].interval = max / 4
       }
     }
+  },
+  watch: {
+    locale: 'queryChartData'
   }
 }
 </script>

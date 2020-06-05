@@ -5,8 +5,11 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  background: #fff;
-  box-shadow: 0px 0px 10px 0px rgba(198, 198, 198, 0.5);
+  background: $color-4;
+  color: $color-3;
+  a {
+    color: $color-3;
+  }
 }
 
 html.mobile {
@@ -30,7 +33,6 @@ html.mobile {
 
     a {
       font-size: 12px;
-      color: #001032;
     }
   }
 }
@@ -41,6 +43,7 @@ html.desktop {
   .pc-footer {
     padding-top: 50px;
     width: 100%;
+    min-width: $width-pc-container;
     height: $height-pc-footer;
 
     &-wrapper {
@@ -48,25 +51,47 @@ html.desktop {
       align-items: center;
       margin: auto;
       min-width: 1200px;
+      max-width: 1920px;
       width: 80%;
 
       .left {
         display: flex;
-        align-items: center;
-
-        & > img {
-          width: 140px;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 72px;
+        .split-line {
+          margin: 0 20px;
+          width: 1px;
+          height: 18px;
+          background: $color-3;
         }
+        .logo {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 45px;
+          height: 35px;
 
-        .sub-title {
-          margin-left: 12px;
-          font-size: 14px;
-
-          span {
-            display: inline-block;
-            transform: translateY(1px);
-            margin-left: 12px;
+          a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            text-align: center;
           }
+          .home {
+            font-size: 18px;
+            font-weight: 600;
+            color: $color-3;
+            line-height: 25px;
+          }
+          img {
+            width: 147px;
+            height: 35px;
+            margin-right: 6px;
+          }
+        }
+        .copyright {
+          color: $color-10;
         }
       }
 
@@ -82,16 +107,15 @@ html.desktop {
 
           .title {
             margin-bottom: 6px;
-            color: $color-main;
             line-height: 24px;
             font-size: 12px;
+            color: $color-10;
           }
 
           a {
             display: block;
-            color: #8493b3;
             font-size: 12px;
-            line-height: 1.8;
+            line-height: 20px;
           }
         }
       }
@@ -99,6 +123,12 @@ html.desktop {
       .right {
         font-size: 12px;
         align-self: flex-start;
+        .title {
+          margin-bottom: 6px;
+          line-height: 24px;
+          font-size: 12px;
+          color: $color-10;
+        }
       }
     }
   }

@@ -1,12 +1,11 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="income-comp-wrap">
     <img src="@/assets/img/dot.png" alt class="img-dot" v-if="!isMobile" />
     <div class="top">
-      <div class="title" v-if="!isMobile">{{ $t('title') }}</div>
-      <div class="refresh-btn" @click="refresh">
+      <div class="title" v-if="!isMobile">{{ $t('incomeComp.title') }}</div>
+      <div class="refresh-btn" :class="{ 'refresh-jp': locale == 'ja-JP' }" @click="refresh">
         <img src="@/assets/img/icon-refresh.png" alt />
-        {{ $t('btn') }}
+        {{ $t('incomeComp.btn') }}
       </div>
     </div>
     <div class="table-comp-wrap">
@@ -15,25 +14,25 @@
         v-loading="loading && !isMobile"
         :data="tableData"
         :height="isMobile ? undefined : tableHeight"
-        :empty-text="dataLoaded ? $t('emptyText') : ' '"
+        :empty-text="dataLoaded ? $t('incomeComp.emptyText') : ' '"
         header-cell-class-name="table-header-cell"
         cell-class-name="table-body-cell"
         ref="table"
       >
         <el-table-column
           prop="currentEra"
-          :label="$t('tableTitle')[0]"
+          :label="$t('incomeComp.tableTitle')[0]"
           :width="isMobile ? '120' : ''"
         ></el-table-column>
 
         <el-table-column
           prop="amount"
-          :label="$t('tableTitle')[1]"
+          :label="$t('incomeComp.tableTitle')[1]"
           :width="isMobile ? '' : '218'"
           align="right"
         ></el-table-column>
         <p slot="append" v-if="!allLoaded && tableData.length !== 0" @click="loading || load()" class="loading-btn">
-          <span v-if="!loading" class="btn">{{ $t('loadBtn') }}</span>
+          <span v-if="!loading" class="btn">{{ $t('incomeComp.loadBtn') }}</span>
           <img v-if="!loading" src="@/assets/img/icon-arrow-down.png" alt />
           <i v-else class="el-icon-loading"></i>
         </p>
@@ -78,7 +77,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {

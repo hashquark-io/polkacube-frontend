@@ -16,21 +16,23 @@ html.desktop {
       height: 28px;
       background: rgba(254, 254, 255, 1);
       border-radius: 4px;
-      color: #3B72E1;
+      color: $color-2;
       border: 1px solid rgba(231, 236, 247, 1);
       cursor: pointer;
       transition: border-color 0.3s;
 
-      &>img {
+      & > img {
         width: 13px;
         height: 13px;
       }
 
       &:hover {
-        border-color: #3B72E1;
+        border-color: $color-2;
       }
     }
-
+    .refresh-jp{
+      width: 125px;
+    }
 
     .img-dot {
       width: 34px;
@@ -52,11 +54,12 @@ html.desktop {
 
     .table-comp-wrap {
       margin: 30px 0 0 0;
-      padding: 10px 0 0 23px;
+      padding: 0 0 0 23px;
       width: 100%;
       background: #fff;
       box-shadow: 0px 8px 22px 0px rgba(227, 237, 255, 1);
       border-radius: 10px;
+      overflow: hidden;
 
       .loading-btn {
         height: 90px;
@@ -65,7 +68,7 @@ html.desktop {
         justify-content: center;
         align-items: center;
         font-weight: 400;
-        color: #3B72E1;
+        color: $color-2;
         cursor: pointer;
 
         img {
@@ -73,11 +76,9 @@ html.desktop {
           width: 16px;
         }
       }
-
     }
 
     .table-header-cell {
-
       color: $color-1;
       border-bottom: none;
 
@@ -125,17 +126,19 @@ html.mobile {
       height: 28px;
       background: rgba(254, 254, 255, 1);
       border-radius: 4px;
-      color: #3B72E1;
+      color: $color-2;
       border: 1px solid rgba(231, 236, 247, 1);
 
-      &>img {
+      & > img {
         width: 13px;
         height: 13px;
       }
     }
+    .refresh-jp{
+        width: 125px;
+    }
 
     .table-comp-wrap {
-
       .loading-btn {
         height: 90px;
         display: flex;
@@ -143,7 +146,7 @@ html.mobile {
         justify-content: center;
         align-items: center;
         font-weight: 400;
-        color: #3B72E1;
+        color: $color-2;
         cursor: pointer;
 
         img {
@@ -151,21 +154,17 @@ html.mobile {
           width: 16px;
         }
       }
-
     }
 
     .table-header-cell {
-
       color: $color-1;
       border-bottom: none;
-
     }
 
     .table-body-cell {
       padding: 18px 0;
 
       color: $color-main;
-
     }
   }
 }

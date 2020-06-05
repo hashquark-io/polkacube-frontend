@@ -2,13 +2,13 @@
 import Vue from 'vue'
 import Big from 'big.js'
 
-function format(num) {
+export function format(num) {
   var reg = /\d{1,3}(?=(\d{3})+$)/g
   return `${num}`.replace(reg, '$&,')
 }
 
 // 加上千分位
-const thousandth = function(v, num) {
+export const thousandth = function(v, num) {
   if (typeof v === 'object' || isNaN(+v)) return ''
   if (v === 0) return Big(v).toFixed(num)
   let val
@@ -22,12 +22,12 @@ const thousandth = function(v, num) {
   return v
 }
 
-const Mathfloor = (v, num = 2) => {
+export const Mathfloor = (v, num = 2) => {
   if (typeof v === 'object' || isNaN(+v)) return
   return (parseInt(v * Math.pow(10, num)) / Math.pow(10, num)).toFixed(num)
 }
 
-const debounce = function(func, wait, immediate) {
+export const debounce = function(func, wait, immediate) {
   // immediate默认为false
   var timeout, args, context, timestamp, result
 
@@ -61,7 +61,7 @@ const debounce = function(func, wait, immediate) {
     return result
   }
 }
-const throttle = function(func, wait, options) {
+export const throttle = function(func, wait, options) {
   /* options的默认值
    *  表示首次调用返回值方法时，会马上调用func；否则仅会记录当前时刻，当第二次调用的时间间隔超过wait时，才调用func。
    *  options.leading = true;
@@ -105,7 +105,7 @@ const throttle = function(func, wait, options) {
   }
 }
 
-function deepClone(obj, hash = new WeakMap()) {
+export function deepClone(obj, hash = new WeakMap()) {
   const objStr = Object.prototype.toString.call(obj)
   if (!(objStr === '[object Object]' || objStr === '[object Array]')) {
     return obj
@@ -126,7 +126,7 @@ function deepClone(obj, hash = new WeakMap()) {
   return Object.assign(cloneObj, ...result)
 }
 
-const strSlice = (str, front = 6, behind = 4) => {
+export const strSlice = (str, front = 6, behind = 4) => {
   if (typeof str !== 'string' || str.length === 0) return ''
   return str.slice(0, front) + '...' + str.slice(-behind)
 }
@@ -135,4 +135,62 @@ Vue.prototype.thousandth = thousandth
 Vue.prototype.Mathfloor = Mathfloor
 Vue.prototype.strSlice = strSlice
 
-export { format, thousandth, Mathfloor, debounce, deepClone, strSlice, throttle }
+export function formatInp(val, len = 3) {
+  val = val.replace(/[^\d.]/g, '') //清除“数字”和“.”以外的字符
+  val = val.replace(/\.{2,}/g, '.') //只保留第一个. 清除多余的
+  val = val
+    .replace('.', '$#$')
+    .replace(/\./g, '')
+    .replace('$#$', '.')
+  // eslint-disable-next-line prettier/prettier
+  let pattern = ''
+  eval(
+    `pattern = /^(\\d+)\\.(${Array(len) //只能输入len位小数
+      .fill('\\d')
+      .join('')}).*$/`
+  )
+  // eslint-disable-next-line no-undef
+  val = val.replace(pattern, '$1.$2')
+  return val
+}
+
+export function arraySort(arr, orders) {
+  arr.sort(function(a, b) {
+    return sortByProps(a, b, orders)
+  })
+}
+function sortByProps(a, b, orders) {
+  let cps = [] // 存储排序属性比较结果。
+  // 当return 的值大于0时当前比较的两项 交换位置 小于0不换 0不变
+  if (orders && typeof orders === 'object') {
+    for (let k in orders) {
+      let asc = orders[k] === 'asc'
+      if (a[k] > b[k]) {
+        cps.push(asc ? 1 : -1)
+        break
+      } else if (a[k] === b[k]) {
+        cps.push(0)
+      } else {
+        cps.push(asc ? -1 : 1)
+        break
+      }
+    }
+  }
+  for (let j = 0; j < cps.length; j++) {
+    if (cps[j]) {
+      return cps[j]
+    }
+  }
+  return 0
+}
+
+export function loadSocket(network) {
+  // eslint-disable-next-line no-undef
+  const path =
+    // eslint-disable-next-line no-undef
+    BUILD_ENV !== 'development'
+      ? // eslint-disable-next-line no-undef
+        `${network === 'kusama' ? POLKACUBE_SOCKET_PATH : POLKADOT_SOCKET_PATH}/socket.io`
+      : '/socket.io'
+  window.socket = window.socket || (window.socket = window.io(window.SOCKET_HOST, { path }))
+}

@@ -8,7 +8,7 @@
   }
 
   .orange {
-    color: #FA6900;
+    color: #fa6900;
   }
 
   .f-24 {
@@ -33,6 +33,7 @@
     width: 100%;
     box-shadow: 0px 8px 22px 0px rgba(227, 237, 255, 1);
     border-radius: 10px;
+    overflow: hidden;
 
     .loading-btn {
       height: 60px;
@@ -61,17 +62,16 @@
       margin-left: 23px;
       color: $color-main;
 
-      &>div:nth-of-type(1) {
+      & > div:nth-of-type(1) {
         font-size: 14px;
         font-weight: 600;
         white-space: nowrap;
       }
 
-      &>div:nth-of-type(2) {
+      & > div:nth-of-type(2) {
         font-size: 12px;
       }
     }
-
   }
 
   .table-row-class-grey * {
@@ -79,7 +79,6 @@
   }
 
   .table-header-cell {
-
     color: $color-1;
     border-bottom: none;
 
@@ -89,7 +88,6 @@
   }
 
   .table-body-cell {
-
     color: $color-main;
     padding: 7px 0;
 
@@ -114,15 +112,15 @@ html.desktop {
       padding-left: 24px;
       height: 62px;
       line-height: 62px;
-      background: #E9EFFD;
+      background: #e9effd;
       border-radius: 6px;
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
 
-      &>span:nth-of-type(1) {
+      & > span:nth-of-type(1) {
         margin-right: 10px;
-        color: #3B72E1;
+        color: $color-2;
         font-size: 22px;
       }
     }
@@ -131,7 +129,7 @@ html.desktop {
       padding: 60px 124px 90px;
       width: 1200px;
       min-height: 666px;
-      background: #FBFCFF;
+      background: #fbfcff;
 
       &-title {
         margin-bottom: 26px;
@@ -146,7 +144,7 @@ html.desktop {
         padding: 0 4px 0 20px;
         height: 48px;
         background: #fff;
-        box-shadow: 0px 10px 20px 0px #E3EDFF;
+        box-shadow: 0px 10px 20px 0px #e3edff;
         border-radius: 2px;
 
         .icon {
@@ -160,15 +158,12 @@ html.desktop {
           font-size: 16px;
           border: none;
           outline: none;
-
-          &::-webkit-input-placeholder {
-            color: $color-1;
-          }
         }
+        @include input-placeholder($color-1);
 
         .btn {
           width: 128px;
-          background: #3B72E1;
+          background: $color-2;
           border: none;
         }
 
@@ -199,19 +194,16 @@ html.desktop {
         padding: 0 36px 0 20px;
       }
 
-      .left>p:first-child {
+      .left > p:first-child {
         line-height: 40px;
       }
 
-
       .year-income {
-        padding-right: 27px;
+        padding: 0 27px;
         flex-basis: 145px;
         text-align: right;
-        border-left: 1px solid #E7EAF0;
-
+        border-left: 1px solid #e7eaf0;
       }
-
     }
   }
 }
@@ -227,24 +219,24 @@ html.mobile {
       padding: 0 16px;
       height: 62px;
       line-height: 62px;
-      background: #E9EFFD;
+      background: #e9effd;
       border-radius: 6px;
       font-size: 16px;
       font-weight: 500;
 
-      &>span:nth-of-type(1) {
+      & > span:nth-of-type(1) {
         margin-right: 10px;
-        color: #3B72E1;
+        color: $color-2;
         font-size: 22px;
       }
     }
 
     .card {
-      margin: 0 16px;
+      margin: 0 8px;
       padding: 45px 16px;
       min-height: 387px;
       text-align: center;
-      background: #FBFCFF;
+      background: #fbfcff;
 
       &-title {
         margin-bottom: 26px;
@@ -259,7 +251,7 @@ html.mobile {
         padding-left: 20px;
         height: 48px;
         background: #fff;
-        box-shadow: 0px 10px 20px 0px #E3EDFF;
+        box-shadow: 0px 10px 20px 0px #e3edff;
         border-radius: 2px;
 
         .icon {
@@ -273,17 +265,14 @@ html.mobile {
           font-size: 16px;
           border: none;
           outline: none;
-
-          &::-webkit-input-placeholder {
-            color: $color-1;
-          }
         }
+        @include input-placeholder($color-1);
       }
 
       .btn {
         margin-top: 20px;
         width: 100%;
-        background: #3B72E1;
+        background: $color-2;
         border: none;
       }
 
@@ -322,7 +311,7 @@ html.mobile {
         text-align: left;
         line-height: 24px;
 
-        &>p:last-child {
+        & > p:last-child {
           margin-top: 5px;
         }
       }
@@ -335,9 +324,8 @@ html.mobile {
         padding-right: 20px;
         width: 40%;
         text-align: right;
-        border-left: 1px solid #E7EAF0;
+        border-left: 1px solid #e7eaf0;
       }
     }
-
   }
 }

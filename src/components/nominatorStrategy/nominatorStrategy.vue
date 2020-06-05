@@ -1,18 +1,17 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="nominator-strategy">
     <div class="title">
-      <span @click="$router.replace('/polka/strategy')">{{ $t('title') }}</span>
-      <span>> {{ $t('subTitle') }}</span>
+      <span @click="$router.replace(`/${network}/strategy`)">{{ $t('nominatorStrategyComp.title') }}</span>
+      <span>> {{ $t('nominatorStrategyComp.subTitle') }}</span>
     </div>
     <div class="card">
-      <p class="card-title">{{ $t('inputTitle') }}</p>
+      <p class="card-title">{{ $t('nominatorStrategyComp.inputTitle', [units]) }}</p>
       <div class="card-input-wrap">
         <img class="icon" src="@/assets/img/calc.png" alt />
         <input
           type="text"
           class="input"
-          :placeholder="$t('inputPlaceholder')"
+          :placeholder="$t('nominatorStrategyComp.inputPlaceholder')"
           :value="amount"
           @input="formatInp"
           ref="inp"
@@ -23,12 +22,12 @@
           :disabled="!+amount"
           @click="showProgressBar"
           v-if="!isMobile"
-          >{{ $t('btn') }}</el-button
+          >{{ $t('nominatorStrategyComp.btn') }}</el-button
         >
       </div>
 
       <el-button type="primary" :class="['btn', !+amount && 'disabled']" @click="showProgressBar" v-if="isMobile">{{
-        $t('btn')
+        $t('nominatorStrategyComp.btn')
       }}</el-button>
 
       <progress-bar ref="progressBar" :show="isCalc" />
@@ -36,39 +35,43 @@
       <div class="card-tips" v-show="showResult && !isMobile">
         <div class="daily-income">
           <div class="left">
-            <p class="main-color fontw5 m-t-7">{{ $t('cardLabel')[0] }}</p>
-            <p class="grey" style="width: 450px;">{{ $t('cardLabel')[1] }}</p>
+            <p class="main-color fontw5 m-t-7">{{ $t('nominatorStrategyComp.cardLabel')[0] }}</p>
+            <p class="grey" style="width: 450px;">{{ $t('nominatorStrategyComp.cardLabel')[1] }}</p>
           </div>
           <div class="right">
             <p class="orange fontw5 m-b-7 f-24">
-              {{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}
-              <span class="f-16" v-if="info.dailyRevenue">KSM</span>
+              <span v-if="units === 'KSM'">{{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}</span>
+              <span v-else>N/A DOT</span>
+              <span class="f-16" v-if="units === 'KSM' && info.dailyRevenue">{{ units }}</span>
             </p>
-            <p class="main-color">{{ $t('cardLabel')[2] }}</p>
+            <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[2] }}</p>
           </div>
         </div>
         <div class="year-income">
-          <p class="orange fontw5 m-b-7 f-24" v-if="info.annualRate">{{ info.annualRate }}</p>
-          <p class="main-color">{{ $t('cardLabel')[3] }}</p>
+          <p class="orange fontw5 m-b-7 f-24" v-if="units === 'KSM' && info.annualRate">{{ info.annualRate }}</p>
+          <p class="orange fontw5 m-b-7 f-24" v-else>N/A</p>
+          <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[3] }}</p>
         </div>
       </div>
 
       <div class="card-tips" v-show="showResult && isMobile">
         <div class="top">
-          <p class="main-color fontw5">{{ $t('cardLabel')[0] }}</p>
-          <p class="grey">{{ $t('cardLabel')[1] }}</p>
+          <p class="main-color fontw5">{{ $t('nominatorStrategyComp.cardLabel')[0] }}</p>
+          <p class="grey">{{ $t('nominatorStrategyComp.cardLabel')[1] }}</p>
         </div>
         <div class="income">
           <div class="daily-income">
             <p class="orange fontw5 f-24">
-              {{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}
-              <span class="f-16" v-if="info.dailyRevenue">KSM</span>
+              <span v-if="units === 'KSM'">{{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}</span>
+              <span v-else>N/A DOT</span>
+              <span class="f-16" v-if="units === 'KSM' && info.dailyRevenue">{{ units }}</span>
             </p>
-            <p class="main-color">{{ $t('cardLabel')[2] }}</p>
+            <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[2] }}</p>
           </div>
           <div class="year-income">
-            <p class="orange fontw5 f-24" v-if="info.annualRate">{{ info.annualRate }}</p>
-            <p class="main-color">{{ $t('cardLabel')[3] }}</p>
+            <p class="orange fontw5 m-b-7 f-24" v-if="units === 'KSM' && info.annualRate">{{ info.annualRate }}</p>
+            <p class="orange fontw5 m-b-7 f-24" v-else>N/A</p>
+            <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[3] }}</p>
           </div>
         </div>
       </div>
@@ -76,12 +79,16 @@
       <div class="table-comp-wrap" v-show="showResult">
         <el-table
           :data="info.validatorList || []"
-          :empty-text="dataLoaded ? $t('emptyText') : ' '"
+          :empty-text="dataLoaded ? $t('nominatorStrategyComp.emptyText') : ' '"
           header-cell-class-name="table-header-cell"
           cell-class-name="table-body-cell"
           @row-click="toDetail"
         >
-          <el-table-column prop="validatorAddr" :label="$t('tableTitle')[0]" :width="isMobile ? '' : 430">
+          <el-table-column
+            prop="validatorAddr"
+            :label="$t('nominatorStrategyComp.tableTitle')[0]"
+            :width="isMobile ? '' : 430"
+          >
             <template slot-scope="scope">
               <div class="table-col-1">
                 <Identicon :size="28" :theme="'polkadot'" :value="scope.row.validatorAddress" />
@@ -91,14 +98,22 @@
                       :identity="scope.row.validatorName"
                       v-if="Object.keys(scope.row.validatorName).length > 0"
                     />
-                    {{ (scope.row.validatorName && scope.row.validatorName.display) || $t('validatorName') }}
+                    {{
+                      (scope.row.validatorName && scope.row.validatorName.display) ||
+                        $t('nominatorStrategyComp.validatorName')
+                    }}
                   </div>
                   <div>{{ isMobile ? strSlice(scope.row.validatorAddress) : scope.row.validatorAddress }}</div>
                 </div>
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="totalBonded" :label="$t('tableTitle')[1]" :width="130" align="right">
+          <el-table-column
+            prop="totalBonded"
+            :label="$t('nominatorStrategyComp.tableTitle')[1]"
+            :width="130"
+            align="right"
+          >
             <template slot-scope="scope">
               <el-popover placement="top-start" trigger="hover" :content="popverText(scope.row)">
                 <span slot="reference" class="table-body-cell pointer">{{ scope.row.totalBonded }}</span>
@@ -107,20 +122,20 @@
           </el-table-column>
           <el-table-column
             prop="commission"
-            :label="$t('tableTitle')[2]"
+            :label="$t('nominatorStrategyComp.tableTitle')[2]"
             align="right"
             :width="110"
             v-if="!isMobile"
           ></el-table-column>
           <el-table-column
             prop="eraRevenue"
-            :label="$t('tableTitle')[3]"
+            :label="$t('nominatorStrategyComp.tableTitle')[3]"
             align="right"
             v-if="!isMobile"
           ></el-table-column>
           <el-table-column
             prop="dailyRevenue"
-            :label="$t('tableTitle')[4]"
+            :label="$t('nominatorStrategyComp.tableTitle')[4]"
             align="right"
             :width="156"
             v-if="!isMobile"
@@ -135,6 +150,7 @@
 import progressBar from '@/components/progressbar/progressbar'
 import Identicon from '@polkadot/vue-identicon'
 import judgementPopover from '@/components/judgementPopover/judgementPopover.vue'
+import { formatInp } from '@/methods/util'
 
 export default {
   components: {
@@ -164,8 +180,6 @@ export default {
     initCacheData() {
       const { path } = this.$store.state.fromRoute
       const { info, amount } = this.$store.state.nominatorStrategyInfo
-      console.log(path, info)
-
       if (path === '/polka/detail' && info) {
         this.info = info
         this.amount = amount
@@ -200,7 +214,7 @@ export default {
       const progressIns = this.$refs.progressBar
       if (!this.amount || this.amount <= 0 || progressIns.isPending) return
       if (this.amount > 10000000) {
-        this.$message.error(this.$t('invalideNum'))
+        this.$msg.error(this.$t('nominatorStrategyComp.invalideNum'))
         return
       }
       this.isCalc = true
@@ -224,7 +238,7 @@ export default {
           console.warn(err)
           progressIns.finish().then(() => {
             this.isCalc = false
-            this.$message.error(this.$t('timeout'))
+            this.$msg.error(this.$t('nominatorStrategyComp.timeout'))
           })
         }
       )
@@ -234,23 +248,10 @@ export default {
     },
     toDetail({ validatorAddress }) {
       const ind = this.info.validatorList.findIndex(row => row.validatorAddress === validatorAddress)
-      this.$router.push(`/polka/detail?id=${validatorAddress}&ind=${ind}`)
+      this.$router.push(`/${this.network}/detail?id=${validatorAddress}&ind=${ind}`)
     },
     formatInp(e) {
-      let val = e.target.value
-      val = val.replace(/[^\d.]/g, '') //清除“数字”和“.”以外的字符
-      val = val.replace(/\.{2,}/g, '.') //只保留第一个. 清除多余的
-      val = val
-        .replace('.', '$#$')
-        .replace(/\./g, '')
-        .replace('$#$', '.')
-      // eslint-disable-next-line no-useless-escape
-      val = val.replace(/^(\-)*(\d+)\.(\d\d\d\d\d\d).*$/, '$1$2.$3') //只能输入6位小数
-      //如果没有小数点，不能为类似 01、02的金额
-      // if (val.indexOf(".") < 0 && val != "") {
-      //   val = parseFloat(val);
-      // }
-      this.amount = e.target.value = val
+      this.amount = e.target.value = formatInp(e.target.value, 6)
     }
   }
 }

@@ -1,12 +1,11 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="polka-proposal wrapper">
     <div class="info-wrap">
       <img src="./img/bg-1.png" alt class="bg-1" />
-      <p class="intro">{{ $t('intro') }}</p>
+      <p class="intro">{{ $t('polkaProposal.intro') }}</p>
       <div class="info">
         <div class="item">
-          <p class="key">{{ $t('info')[0] }}</p>
+          <p class="key">{{ $t('polkaProposal.info')[0] }}</p>
           <div data-name="Era">
             <p class="value progress">
               <span v-if="polkaInfo.progress">
@@ -20,12 +19,12 @@
           </div>
         </div>
         <div class="item">
-          <p class="key">{{ $t('info')[1] }}</p>
+          <p class="key">{{ $t('polkaProposal.info')[1] }}</p>
           <p class="value" v-if="polkaInfo.proposalsFormat">{{ polkaInfo.proposalsFormat }}</p>
           <p class="value" v-else>--</p>
         </div>
         <div class="item">
-          <p class="key">{{ $t('info')[2] }}</p>
+          <p class="key">{{ $t('polkaProposal.info')[2] }}</p>
           <p class="value" v-if="polkaInfo.referendumCountFormat">{{ polkaInfo.referendumCountFormat }}</p>
           <p class="value" v-else>--</p>
         </div>
@@ -41,12 +40,12 @@
       <div class="tabs" ref="tabWrap" v-sticky="{ zIndex: 50, stickyTop: 55, disabled: false }">
         <div class="tab-wrap">
           <div
-            v-for="(item, i) in $t('nav')"
+            v-for="(item, i) in $t('polkaProposal.nav')"
             :key="i"
             @click="switchTab(+i)"
             :class="['tab', isActive(+i) && 'active']"
           >
-            {{ $t('nav')[i] }}
+            {{ $t('polkaProposal.nav')[i] }}
           </div>
         </div>
       </div>

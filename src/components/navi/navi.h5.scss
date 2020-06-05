@@ -1,5 +1,5 @@
 .navi-mobile {
-  z-index: 98;
+  z-index: 2000;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,6 +8,7 @@
   width: 100%;
   height: $height-h5-navi;
   background-color: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(198, 198, 198, 0.5);
 
   & > a {
     display: inline-block;
@@ -17,18 +18,24 @@
     position: relative;
     flex-grow: 1;
     margin-left: 3%;
-
+    display: flex;
+    align-items: center;
+    & > a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
     img {
-      height: 24px;
+      width: 32px;
     }
 
     .sub-title {
-      position: absolute;
-      left: 25.5px;
-      bottom: -2px;
-      font-size: 10px;
-      line-height: 10px;
-      color: #7e8aa3;
+      padding-left: 5px;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 600;
+      color: $color-main;
+      text-shadow: 0px 2px 4px rgba(234, 234, 234, 0.5);
     }
   }
 
@@ -52,7 +59,7 @@
   }
 
   .menu {
-    width: 12%;
+    min-width: 10%;
     height: 100%;
 
     .container {

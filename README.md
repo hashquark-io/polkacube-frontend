@@ -44,6 +44,8 @@ docker run -d -p 8080:8080 polkacube_frontend
 # Polkacube-backend web server URI
 # The '127.0.0.1' direct to container host, you must change it when you run in docker.
 POLKACUBE_SERVER='"http://10.10.10.10:7001"'
+POLKADOT_SERVER='"http://10.10.10.10:7002"'
+BUILD_ENV='"build"'
 # ==========================
 
 docker run -d -p 8080:8080 -v [HOST_PATH]/.env:/src/.env hashquarkio/polkacube_frontend
@@ -67,7 +69,7 @@ src/components/** used for UI components.
 src/i18n/** used for localizations.  
 src/plugin/** used to configure vue third party library that need to be loaded.  
 src/view/** used for pages view.  
-src/store/** used for UI components state management.  
+src/store/\*\* used for UI components state management.
 
 ## License
 

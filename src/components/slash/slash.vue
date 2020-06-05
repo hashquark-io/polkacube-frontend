@@ -1,11 +1,10 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="slash-comp-wrap">
     <img src="@/assets/img/dot.png" alt class="img-dot" v-if="!isMobile" />
     <div class="top">
       <div v-if="!isMobile" class="title">
-        <div :class="{ active: activeInd === 1, item: true }" @click="changeType(1)">{{ $t('title1') }}</div>
-        <div :class="{ active: activeInd === 2, item: true }" @click="changeType(2)">{{ $t('title2') }}</div>
+        <div :class="{ active: activeInd === 1, item: true }" @click="changeType(1)">{{ $t('slashComp.title1') }}</div>
+        <div :class="{ active: activeInd === 2, item: true }" @click="changeType(2)">{{ $t('slashComp.title2') }}</div>
       </div>
       <div class="search" v-if="!addr">
         <div class="search-btn-wrap">
@@ -13,14 +12,14 @@
             type="text"
             v-model="inpVal"
             @input="dealInp"
-            :placeholder="$t('placeholder')"
+            :placeholder="$t('slashComp.placeholder')"
             @keyup.enter="loading || search()"
           />
-          <span class="search-btn" @click="loading || search()">{{ $t('searchBtn') }}</span>
+          <span class="search-btn" @click="loading || search()">{{ $t('slashComp.searchBtn') }}</span>
         </div>
-        <span class="refresh-btn" @click="refresh">
+        <span class="refresh-btn" :class="{ 'refresh-jp': locale == 'ja-JP' }" @click="refresh">
           <img src="@/assets/img/icon-refresh.png" alt />
-          {{ $t('refreshBtn') }}
+          {{ $t('slashComp.refreshBtn') }}
         </span>
       </div>
     </div>
@@ -30,17 +29,22 @@
         v-loading="loading && !isMobile"
         :data="activeInd === 1 ? tableRecordsData : tableStatisticsData"
         :height="isMobile ? undefined : tableHeight"
-        :empty-text="dataLoaded ? $t('emptyText') : ' '"
+        :empty-text="dataLoaded ? $t('slashComp.emptyText') : ' '"
         header-cell-class-name="table-header-cell"
         cell-class-name="table-body-cell"
         ref="table"
       >
-        <el-table-column prop="accountAddr" :label="(activeInd === 1 ? $t('recordsTitle') : $t('statisticsTitle'))[0]">
+        <el-table-column
+          prop="accountAddr"
+          :label="(activeInd === 1 ? $t('slashComp.recordsTitle') : $t('slashComp.statisticsTitle'))[0]"
+        >
           <template slot-scope="scope">
             <div class="table-col-1">
               <Identicon :size="28" :theme="'polkadot'" :value="scope.row.accountAddr" />
               <div class="name-address">
-                <div :class="{ grey: !scope.row.nickname }">{{ scope.row.nickname || $t('recordsTitle')[0] }}</div>
+                <div :class="{ grey: !scope.row.nickname }">
+                  {{ scope.row.nickname || $t('slashComp.recordsTitle')[0] }}
+                </div>
                 <div class="grey">{{ isMobile ? strSlice(scope.row.accountAddr) : scope.row.accountAddr }}</div>
               </div>
             </div>
@@ -48,13 +52,13 @@
         </el-table-column>
         <el-table-column
           :prop="activeInd === 1 ? 'currentEra' : 'num'"
-          :label="(activeInd === 1 ? $t('recordsTitle') : $t('statisticsTitle'))[1]"
+          :label="(activeInd === 1 ? $t('slashComp.recordsTitle') : $t('slashComp.statisticsTitle'))[1]"
           :width="isMobile ? 100 : 180"
           align="right"
         ></el-table-column>
         <el-table-column
           :prop="activeInd === 1 ? 'amount' : 'amount'"
-          :label="(activeInd === 1 ? $t('recordsTitle') : $t('statisticsTitle'))[2]"
+          :label="(activeInd === 1 ? $t('slashComp.recordsTitle') : $t('slashComp.statisticsTitle'))[2]"
           align="right"
           :width="isMobile ? 120 : 218"
         ></el-table-column>
@@ -64,7 +68,7 @@
           @click="loading || load()"
           class="loading-btn"
         >
-          <span v-if="!loading" class="btn">{{ $t('loadBtn') }}</span>
+          <span v-if="!loading" class="btn">{{ $t('slashComp.loadBtn') }}</span>
           <img v-if="!loading" src="@/assets/img/icon-arrow-down.png" alt />
           <i v-else class="el-icon-loading"></i>
         </p>
@@ -138,7 +142,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {

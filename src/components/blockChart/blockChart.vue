@@ -1,9 +1,8 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="block-chart-comp-wrap">
     <img src="@/assets/img/dot.png" alt class="img-dot" v-if="!isMobile" />
     <div class="top" v-if="!isMobile">
-      <div class="title">{{ $t('title') }}</div>
+      <div class="title">{{ $t('blockChartComp.title') }}</div>
     </div>
     <div class="chart-wrap" v-loading="chartLoading">
       <div class="chart" ref="chart"></div>
@@ -24,6 +23,7 @@ export default {
   mounted() {
     this.queryChartData()
   },
+
   methods: {
     queryChartData() {
       this.axios.get(`${window._config.url.point}/${this.accountAddr}`).then(data => {
@@ -33,7 +33,7 @@ export default {
     },
     initChart(data) {
       const option = deepClone(chartOption)
-      option.legend.data = Object.values(this.$t('legend'))
+      option.legend.data = Object.values(this.$t('blockChartComp.legend'))
       option.xAxis.data = data.map(t => t.currentEra)
 
       const data1 = data.map(t => t.point)
@@ -43,9 +43,9 @@ export default {
         this.calcMaxMin([...data1, ...data2], option, 0)
       }
       option.series[0].data = data1
-      option.series[0].name = this.$t('legend')[0]
+      option.series[0].name = this.$t('blockChartComp.legend')[0]
       option.series[1].data = data2
-      option.series[1].name = this.$t('legend')[1]
+      option.series[1].name = this.$t('blockChartComp.legend')[1]
 
       if (this.isMobile) {
         option.legend.left = 15
@@ -79,6 +79,9 @@ export default {
         option.yAxis[ind].interval = max / 4
       }
     }
+  },
+  watch: {
+    locale: 'queryChartData'
   }
 }
 </script>

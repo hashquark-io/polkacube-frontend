@@ -1,12 +1,25 @@
 // 全局设定，各实例可以使用
+
 export default {
-  data() {
-    return {
-      locale: window._config.locale,
-      isMobile: window._config.isMobile
-    }
-  },
   computed: {
+    locale: {
+      get() {
+        return this.$root.$i18n.locale
+      }
+    },
+    isMobile: {
+      get() {
+        return this.$store.state.isMobile
+      }
+    },
+    network: {
+      get() {
+        return this.$route.params.pathMatch
+      }
+    },
+    units() {
+      return this.network === 'kusama' ? 'KSM' : 'DOT'
+    },
     // domain 后缀
     envSuffix() {
       const suffix = {
@@ -16,7 +29,7 @@ export default {
         build: ''
       }
       // eslint-disable-next-line no-undef
-      return suffix[APP_BUILD_ENV] || ''
+      return suffix[BUILD_ENV] || ''
     }
   },
 

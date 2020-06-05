@@ -1,5 +1,6 @@
 import '@/config'
 import '@/methods'
+/*eslint-disable*/
 import Vue from 'vue'
 
 import App from './App.vue'
@@ -12,16 +13,11 @@ import mixin from '@/methods/mixin.js'
 
 import '@/plugins'
 
-import Navi from '@/components/navi/navi.vue'
-import Footer from '@/components/footer/footer.vue'
-
 Vue.mixin(mixin)
 
-Vue.component('Navi', Navi)
-Vue.component('Footer', Footer)
 Vue.config.productionTip = false
 
-document.querySelector('html').setAttribute('lang', window._config.locale)
+document.querySelector('html').setAttribute('lang', _config.locale)
 
 new Vue({
   router,

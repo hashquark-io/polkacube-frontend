@@ -4,7 +4,7 @@ import nominator from '@/components/nominator/nominator.vue'
 import blockChart from '@/components/blockChart/blockChart.vue'
 import incomeSlashChart from '@/components/incomeSlashChart/incomeSlashChart.vue'
 import VueSticky from 'vue-sticky'
-
+import phalaTip from '@/components/phalaTip'
 import { throttle } from '@/methods/util'
 
 const refNameList = ['validator', 'nominator', 'slash', 'blockChart', 'incomeSlashChart']
@@ -21,7 +21,8 @@ export default {
     slash,
     nominator,
     blockChart,
-    incomeSlashChart
+    incomeSlashChart,
+    phalaTip
   },
   directives: {
     sticky: VueSticky
@@ -50,9 +51,8 @@ export default {
     }
   },
   beforeMount() {
-    this.navList = Object.values(this.$t('navPc')).map((t, i) => {
+    this.navList = Object.values(this.$t('polkaDetail.navPc')).map((t, i) => {
       return {
-        text: t,
         active: false,
         refName: refNameList[i]
       }
@@ -93,7 +93,7 @@ export default {
             identityInfo = {
               judgements: true,
               judgementsNum: res.judgements.length,
-              judgementsDesc: this.$t(judgementsText[res.judgements.length])
+              judgementsDesc: judgementsText[res.judgements.length]
             }
           } catch {
             identityInfo = {
@@ -107,7 +107,9 @@ export default {
         }
         const judgementInfoList = ['display', 'legal', 'email', 'web', 'twitter', 'riot']
         identityInfo.list = res
-          ? judgementInfoList.map(key => [key, res[key]]).filter(([k, v]) => !!v && k !== 'judgements' && k !== 'other')
+          ? judgementInfoList
+              .map(key => [`judgementPopoverComp.${key}`, res[key]])
+              .filter(([k, v]) => !!v && k !== 'judgements' && k !== 'other')
           : []
 
         this.identityInfo = identityInfo
@@ -142,7 +144,7 @@ export default {
           left: 95,
           top: 77,
           textAlign: 'center',
-          text: ['{a| }\n', `{b| ${this.$t('chart')[0]} (KSM)}`].join(''),
+          text: ['{a| }\n', `{b| ${this.$t('polkaDetail.chart')[0]} (${this.units})}`].join(''),
           textStyle: {
             rich: {
               a: {
@@ -163,7 +165,7 @@ export default {
         tooltip: {
           show: false
         },
-        color: ['#BEC6D5', '#3B72E1'],
+        color: ['#BEC6D5', '#5f6eff'],
         series: {
           radius: ['51%', '75%'],
           center: [100, 100],
@@ -174,17 +176,18 @@ export default {
           }
         }
       }
-      option.title.text = [`{a|${this.info.totalBondedKsm.slice(0, -3)}}\n`, `{b| ${this.$t('chart')[0]} (KSM)}`].join(
-        ''
-      )
+      option.title.text = [
+        `{a|${this.info.totalBondedKsm.slice(0, -3)}}\n`,
+        `{b| ${this.$t('polkaDetail.chart')[0]} (${this.units})}`
+      ].join('')
       option.series.data = [
         {
           value: this.info.selfBonded,
-          name: this.$t('chart')[1]
+          name: this.$t('polkaDetail.chart')[1]
         },
         {
           value: this.info.nominatorsBonded,
-          name: this.$t('chart')[2]
+          name: this.$t('polkaDetail.chart')[2]
         }
       ]
       if (this.isMobile) {
@@ -210,6 +213,10 @@ export default {
         this.$refs[refName].scrollIntoView({ behavior: 'smooth' })
       })
     }
+  },
+  watch: {
+    isMobile: 'initChart',
+    locale: 'initChart'
   },
   beforeDestroy() {
     if (!this.isMobile) {

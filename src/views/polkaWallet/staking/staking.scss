@@ -1,0 +1,241 @@
+html.desktop .staking-wrap {
+  position: relative;
+  min-height: 467px;
+  margin-bottom: 80px;
+  .total-and-add {
+    position: absolute;
+    right: 0;
+    top: -78px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .total-stake {
+    margin-top: 3px;
+    margin-right: 10px;
+    color: $color-main;
+    font-weight: 600;
+    img {
+      margin-right: 4px;
+      width: 18px;
+      vertical-align: sub;
+    }
+  }
+  .btn-add {
+    display: inline-block;
+    width: 118px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    color: #fff;
+    background: $color-2;
+    border-radius: 4px;
+    border: 1px solid $color-2;
+    cursor: pointer;
+    &.disabled {
+      background: $color-3;
+      border: 1px solid $color-3;
+    }
+  }
+  .font-1 {
+    font-size: 12px;
+    color: $color-1;
+    line-height: 19px;
+  }
+  .font-2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-main;
+    line-height: 19px;
+  }
+  .font-3 {
+    font-size: 12px;
+    color: $color-3;
+    line-height: 17px;
+  }
+  .font-4 {
+    font-size: 12px;
+    color: $color-main;
+    line-height: 17px;
+  }
+  & > .item {
+    margin: 0 auto 12px;
+    padding: 30px 40px 0px 32px;
+    background: #ffffff;
+    box-shadow: 0px 6px 18px 4px #e3edff;
+    border-radius: 10px;
+    .top {
+      display: flex;
+
+      .column-1,
+      .column-2 {
+        display: flex;
+        width: 190px;
+        padding-bottom: 28px;
+        .avatar {
+          margin-right: 8px;
+        }
+        .name {
+          width: 118px;
+        }
+      }
+      .column-3 {
+        min-width: 160px;
+      }
+      .column-4 {
+        min-width: 200px;
+        margin-right: 20px;
+        .title {
+          width: 88px;
+          text-align: right;
+        }
+        .label {
+          display: inline-block;
+          margin-right: 12px;
+          min-width: 88px;
+          text-align: right;
+          font-size: 12px;
+          color: $color-3;
+          line-height: 17px;
+        }
+        .value i {
+          color: $color-2;
+          cursor: pointer;
+        }
+        .btn {
+          margin-left: 8px;
+          color: $color-2;
+          cursor: pointer;
+        }
+      }
+      .column-5 {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 0 0 20px;
+        .btn {
+          margin: 0 4px;
+          display: inline-block;
+          height: 32px;
+          line-height: 32px;
+          color: #fff;
+          background: $color-2;
+          border-radius: 4px;
+          cursor: pointer;
+          &.disabled {
+            background: $color-3;
+          }
+        }
+        .nominate,
+        .validate {
+          padding: 0 12px;
+          min-width: 100px;
+          text-align: center;
+          // width: 100px;
+        }
+        .session-key {
+          padding: 0 12px;
+        }
+        .setting {
+          text-align: center;
+          width: 32px;
+          img {
+            margin-top: 7px;
+            width: 18px;
+          }
+        }
+
+        .active {
+          color: #fff;
+          background: $color-2;
+        }
+        .status {
+          margin: 5px 0 0 12px;
+          width: 21px;
+          height: 21px;
+        }
+      }
+    }
+    .bottom {
+      display: flex;
+      // margin-top: 28px;
+      padding: 24px 0;
+      border-top: 1px dashed #e2e3e9;
+      .column-1 {
+        width: 190px;
+        .btn {
+          margin-top: 13px;
+          width: 80px;
+          color: $color-2;
+          border: 1px solid $color-2;
+          border-radius: 4px;
+          text-align: center;
+          line-height: 32px;
+          cursor: pointer;
+        }
+        .no-rewards,
+        .calc {
+          margin-top: 17px;
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          line-height: 17px;
+          img {
+            margin-left: 5px;
+            width: 18px;
+            animation: loading 2s infinite linear;
+          }
+        }
+      }
+      .column-2,
+      .column-3 {
+        width: 120px;
+        margin-right: 72px;
+        font-size: 12px;
+        .content {
+          margin-top: 17px;
+          .nominate-item {
+            display: flex;
+            margin-bottom: 8px;
+            .avatar {
+              margin-right: 4px;
+              height: 20px;
+            }
+          }
+        }
+      }
+      .column-4,
+      .column-5 {
+        width: 120px;
+        margin-right: 72px;
+        p:first-child {
+          margin-bottom: 17px;
+        }
+      }
+    }
+  }
+  .icon {
+    transition: all 0.3s linear;
+    vertical-align: text-top;
+  }
+  .icon-rotate {
+    transform: rotate(-180deg);
+  }
+  .nodata {
+    margin: auto;
+    width: 264px;
+    min-height: 300px;
+    padding-top: 100px;
+    text-align: center;
+    .img-nodata {
+      width: 116px;
+    }
+    p {
+      padding-top: 12px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 17px;
+      color: $color-1;
+    }
+  }
+}

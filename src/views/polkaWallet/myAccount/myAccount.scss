@@ -1,0 +1,152 @@
+html.desktop .my-account-wrap {
+  min-height: 467px;
+  position: relative;
+  margin-bottom: 80px;
+  .total-assets {
+    position: absolute;
+    right: 0;
+    top: -65px;
+    color: $color-main;
+    font-weight: 600;
+    img {
+      margin-right: 4px;
+      width: 18px;
+      vertical-align: sub;
+    }
+  }
+  & > .item {
+    margin: 0 auto 12px;
+    padding: 30px 40px 18px 32px;
+    display: flex;
+    width: 1200px;
+    background: #ffffff;
+    box-shadow: 0px 6px 18px 4px #e3edff;
+    border-radius: 10px;
+    &.active {
+      box-shadow: 0px 6px 18px 4px rgba(227, 237, 255, 0.56);
+    }
+    .column-info {
+      flex: 1;
+      display: flex;
+      .avatar {
+        margin-right: 10px;
+      }
+      .info {
+        .name span,
+        input {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+        }
+        .address {
+          display: inline-block;
+          margin: 4px 0 16px;
+          font-size: 12px;
+          line-height: 17px;
+          color: $color-main;
+        }
+        .notes {
+          .label {
+            margin-right: 12px;
+            color: $color-3;
+          }
+        }
+        .address,
+        .notes {
+          cursor: pointer;
+        }
+        .inp-1 {
+          outline: none;
+          border: none;
+          appearance: none;
+          border-bottom: 1px solid $color-main;
+        }
+      }
+      .icon-write {
+        margin-left: 13px;
+        opacity: 0;
+        transition: all 0.3s;
+        width: 14px;
+        vertical-align: text-top;
+      }
+      .icon-link {
+        width: 16px;
+        vertical-align: sub;
+      }
+      .notes:hover,
+      .name:hover {
+        .icon-write {
+          opacity: 1;
+        }
+      }
+    }
+    .column-balances {
+      min-width: 200px;
+      margin-right: 100px;
+      .label {
+        display: inline-block;
+        margin-right: 12px;
+        color: $color-1;
+        font-size: 12px;
+        line-height: 17px;
+        min-width: 88px;
+        text-align: right;
+      }
+
+      .total {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19px;
+      }
+      .value i {
+        color: $color-2;
+        cursor: pointer;
+      }
+      .btn {
+        margin-left: 8px;
+        color: $color-2;
+        cursor: pointer;
+      }
+    }
+    .column-operate {
+      flex-basis: 100px;
+      .title {
+        margin-bottom: 30px;
+        color: $color-3;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 12px;
+        width: 100px;
+        height: 32px;
+        color: $color-2;
+        border: 1px solid $color-2;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .active {
+        color: #fff;
+        background: $color-2;
+      }
+    }
+  }
+  .nodata {
+    margin: auto;
+    width: 264px;
+    min-height: 300px;
+    padding-top: 100px;
+    text-align: center;
+    .img-nodata {
+      width: 116px;
+    }
+    p {
+      padding-top: 12px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 17px;
+      color: $color-1;
+    }
+  }
+}

@@ -1,8 +1,10 @@
+.phala-tip {
+  word-break: normal !important;
+}
+.pointer {
+  cursor: pointer;
+}
 html.desktop {
-  .pointer {
-    cursor: pointer;
-  }
-
   .validator-comp-wrap {
     position: relative;
     padding: 95px 0 0;
@@ -35,6 +37,7 @@ html.desktop {
       width: 100%;
       box-shadow: 0px 8px 22px 0px rgba(227, 237, 255, 1);
       border-radius: 10px;
+      overflow: hidden;
 
       .loading-btn {
         height: 60px;

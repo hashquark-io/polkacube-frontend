@@ -1,6 +1,10 @@
-.app {
+html.desktop .app {
   position: relative;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 56px);
+}
+html.mobile .app {
+  position: relative;
+  min-height: calc(100vh - 56px);
 }
 
 *[class*='btn'] {
@@ -28,7 +32,7 @@
   display: inline-block;
   width: 0;
   height: 0;
-  border-top: 6px solid #3b72e1;
+  border-top: 6px solid $color-2;
   border-bottom: 6px solid transparent;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
@@ -38,8 +42,11 @@
 .hr {
   border-bottom: #eff2fb 1px solid;
 }
+html.desktop .el-table .cell {
+  word-break: normal !important;
+}
 
-.el-table .cell {
+html.mobile .el-table .cell {
   word-break: keep-all !important;
 }
 
@@ -64,16 +71,29 @@
 .f-16 {
   font-size: 16px !important;
 }
+.f-18 {
+  font-size: 18px !important;
+}
+.f-20 {
+  font-size: 20px !important;
+}
 .color-main {
   color: $color-main !important;
 }
-.color-grey-1 {
+.color-1 {
   color: $color-1 !important;
 }
 .text-right {
   text-align: right;
 }
+.no-event {
+  pointer-events: none;
+}
+.el-popover {
+  border: none !important;
+}
 
+.balances-popover,
 .judgement-popover,
 .totalBonded-popover {
   background: rgba(28, 31, 68, 0.92) !important;
@@ -104,7 +124,64 @@
       }
     }
   }
-  .loading {
-    text-align: center;
+}
+.balances-popover {
+  .item {
+    line-height: 24px;
   }
+}
+.stake-setting {
+  min-width: 144px;
+  background: #fff;
+  box-shadow: 0px 6px 18px 4px #e3edff;
+  border-radius: 2px;
+  padding: 11px 20px;
+  .content {
+    .item {
+      margin: 10px 0;
+      color: $color-main;
+      cursor: pointer;
+      &:hover {
+        color: $color-2;
+      }
+      &.disabled {
+        color: $color-3 !important;
+      }
+    }
+    .line {
+      margin: 10px 0;
+      height: 1px;
+      background: #e7ecf7;
+    }
+  }
+}
+
+.tx-notify {
+  .el-notification__content {
+    p {
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+}
+.el-dialog {
+  margin-top: 140px !important;
+  width: 642px !important;
+  border-radius: 6px !important;
+}
+.el-dialog__body {
+  padding: 2px 24px 16px !important;
+}
+.reward-method-select {
+  display: block !important;
+  .el-input.is-focus .el-input__inner {
+    border-color: $color-2 !important;
+  }
+  .el-input__inner {
+    color: $color-main !important;
+  }
+}
+.el-dropdown-menu__item,
+.el-dropdown {
+  color: $color-main !important;
 }

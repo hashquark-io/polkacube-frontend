@@ -7,12 +7,15 @@ function resolve(dir) {
 }
 
 //The '127.0.0.1' or 'localhost' direct to container host, you must change it when you run in docker.
-let APP_POLKA_BASE_HOST = process.env.POLKACUBE_SERVER
-let APP_BUILD_ENV = '"development"'
+let POLKACUBE_SERVER = process.env.POLKACUBE_SERVER
+let POLKACUBE_SOCKET_SERVER = process.env.POLKACUBE_SOCKET_SERVER
+let POLKACUBE_SOCKET_PATH = process.env.POLKACUBE_SOCKET_PATH
 
-if (process.env.npm_lifecycle_event === 'build') {
-  APP_BUILD_ENV = '"build"'
-}
+let POLKADOT_SERVER = process.env.POLKADOT_SERVER
+let POLKADOT_SOCKET_SERVER = process.env.POLKADOT_SOCKET_SERVER
+let POLKADOT_SOCKET_PATH = process.env.POLKADOT_SOCKET_PATH
+
+let BUILD_ENV = process.env.BUILD_ENV
 
 module.exports = {
   lintOnSave: false,
@@ -33,8 +36,13 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new webpack.DefinePlugin({
-        APP_BUILD_ENV,
-        APP_POLKA_BASE_HOST
+        BUILD_ENV,
+        POLKACUBE_SERVER,
+        POLKACUBE_SOCKET_SERVER,
+        POLKACUBE_SOCKET_PATH,
+        POLKADOT_SERVER,
+        POLKADOT_SOCKET_SERVER,
+        POLKADOT_SOCKET_PATH
       })
     ]
   },

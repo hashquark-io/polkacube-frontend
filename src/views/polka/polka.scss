@@ -1,5 +1,5 @@
 .polka.wrapper {
-  background: #F8F9FC;
+  background: #f8f9fc;
 }
 
 .contact {
@@ -38,8 +38,7 @@ html.desktop {
     height: 87px;
     background: url('./img/chain-icon.svg') no-repeat 43px 42px,
       url('./img/intro-bg.png') no-repeat left top;
-    background-size: 34px 44px,
-      91px 87px;
+    background-size: 34px 44px, 91px 87px;
 
     color: $color-main;
     font-size: 24px;
@@ -62,7 +61,6 @@ html.desktop {
       width: 193px;
       height: 63px;
 
-
       &:nth-of-type(7),
       &:nth-of-type(8) {
         margin-bottom: 24px;
@@ -76,6 +74,7 @@ html.desktop {
       }
 
       .value {
+        padding-right: 10px;
         font-size: 22px;
         font-weight: 600;
         color: $color-main;
@@ -91,7 +90,7 @@ html.desktop {
         margin-top: 5px;
         width: 120px;
         height: 6px;
-        background: #E8ECF3;
+        background: #e8ecf3;
         border-radius: 3px;
         overflow: hidden;
 
@@ -99,7 +98,7 @@ html.desktop {
           border-radius: 3px;
           width: 0;
           height: 100%;
-          background: #3B72E1;
+          background: $color-2;
         }
       }
     }
@@ -108,7 +107,7 @@ html.desktop {
   .item-wrap {
     &-grey {
       min-width: 1200px;
-      background: #F8F9FC;
+      background: #f8f9fc;
     }
 
     &-white {
@@ -126,7 +125,22 @@ html.desktop {
   .contact {
     padding-bottom: 50px;
   }
-
+  .web3 {
+    margin: auto;
+    padding-top: 40px;
+    width: 1200px;
+    height: 158px;
+    text-align: center;
+    border-top: 1px solid #ebecf0;
+    .link {
+      display: inline-block;
+      width: 205px;
+      height: 72px;
+    }
+    img {
+      width: 100%;
+    }
+  }
 }
 
 html.mobile {
@@ -136,7 +150,12 @@ html.mobile {
     padding-top: 22px;
     padding-bottom: 30px;
     width: 100%;
-    background: linear-gradient(180deg, rgba(179, 196, 229, 1) 0%, rgba(255, 255, 255, 1) 100%) no-repeat;
+    background: linear-gradient(
+        180deg,
+        rgba(179, 196, 229, 1) 0%,
+        rgba(255, 255, 255, 1) 100%
+      )
+      no-repeat;
     background-color: transparent;
     background-size: 100% 180px;
 
@@ -157,9 +176,9 @@ html.mobile {
     display: flex;
     align-items: flex-end;
     height: 87px;
-    background: url('./img/chain-icon.svg') no-repeat 43px 40px, url('./img/intro-bg.png') no-repeat left 5px;
-    background-size: 30px 40px,
-      86px 82px;
+    background: url('./img/chain-icon.svg') no-repeat 43px 40px,
+      url('./img/intro-bg.png') no-repeat left 5px;
+    background-size: 30px 40px, 86px 82px;
     color: $color-main;
     font-size: 24px;
     font-weight: 600;
@@ -222,7 +241,7 @@ html.mobile {
         margin-top: 5px;
         width: 120px;
         height: 6px;
-        background: #E8ECF3;
+        background: #e8ecf3;
         border-radius: 3px;
         overflow: hidden;
 
@@ -230,7 +249,7 @@ html.mobile {
           border-radius: 3px;
           width: 0;
           height: 100%;
-          background: #3B72E1;
+          background: $color-2;
         }
       }
     }
@@ -246,13 +265,12 @@ html.mobile {
     overflow-x: scroll;
     width: 100%;
     height: 38px;
-    background: #F8F9FC;
-
+    background: #f8f9fc;
 
     .tab-wrap {
       white-space: nowrap;
 
-      &>div {
+      & > div {
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -262,13 +280,21 @@ html.mobile {
         color: $color-main;
         font-size: 16px;
         font-weight: 600;
-        background: linear-gradient(180deg, rgba(239, 242, 247, 1) 0%, rgba(218, 223, 233, 1) 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(239, 242, 247, 1) 0%,
+          rgba(218, 223, 233, 1) 100%
+        );
         border-radius: 8px 8px 0px 0px;
         text-align: center;
 
         &.active {
           color: #fff;
-          background: linear-gradient(180deg, rgba(150, 190, 244, 1) 0%, rgba(93, 137, 230, 1) 100%);
+          background: linear-gradient(
+            180deg,
+            rgba(150, 190, 244, 1) 0%,
+            rgba(93, 137, 230, 1) 100%
+          );
         }
       }
     }
@@ -299,11 +325,27 @@ html.mobile {
     //     width: 30%;
     //   }
     // }
-
   }
 
   .contact {
     padding: 20px 16px;
   }
-
+  .item-wrap-white {
+    background: #fff;
+  }
+  .web3 {
+    margin: auto;
+    padding-top: 32px;
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    border-top: 1px solid #ebecf0;
+    .link {
+      display: inline-block;
+      width: 160px;
+    }
+    img {
+      width: 160px;
+    }
+  }
 }

@@ -1,31 +1,42 @@
+const transferPathToNetwork = path => {
+  return {
+    kusama: 'Kusama',
+    'polkadot-cc1': 'Polkadot CC1'
+  }[path]
+}
+
+const transferNetworkToPath = network => {
+  return {
+    Kusama: 'kusama',
+    'Polkadot CC1': 'polkadot-cc1'
+  }[network]
+}
+
 export default {
   name: 'navi',
   data() {
-    const chainTypes = Object.entries(this.$t('chainTypes')).map(([k, v]) => [k, v])
     return {
       isMenuDropdown: false,
       isSubMenuDropdown: [true],
       isLangMenuDropdown: false,
-      chainTypes
+      isNetworkMenuDropdown: false
     }
   },
   computed: {
-    chainType() {
-      const chainTypeArr = this.chainTypes.find(t => this.$route.path.includes(t[0]))
-      return chainTypeArr ? chainTypeArr[1] : ''
-    },
     language() {
       if (this.locale === 'en-US') return 'EN'
       return this.locale.includes('CN') ? '简中' : '繁中'
     },
-    chainTypesOther() {
-      return this.chainTypes.filter(t => t[0] !== '/polka')
+    curNetwork() {
+      return transferPathToNetwork(this.network)
     }
   },
 
   methods: {
-    toggleMenu(status) {
-      this.isMenuDropdown = status
+    toggleMenu() {
+      this.isMenuDropdown = !this.isMenuDropdown
+      this.isLangMenuDropdown = false
+      this.isNetworkMenuDropdown = false
     },
     toggleSubMenu(ind) {
       this.isSubMenuDropdown[ind] = !this.isSubMenuDropdown[ind]
@@ -33,9 +44,18 @@ export default {
     },
     toggleLangMenu() {
       this.isLangMenuDropdown = !this.isLangMenuDropdown
+      this.isMenuDropdown = false
+      this.isNetworkMenuDropdown = false
+    },
+    toggleNetworkMenu() {
+      this.isNetworkMenuDropdown = !this.isNetworkMenuDropdown
+      this.isMenuDropdown = false
+      this.isLangMenuDropdown = false
     },
     menuItemClick() {
       this.isMenuDropdown = false
+      this.isLangMenuDropdown = false
+      this.isNetworkMenuDropdown = false
     },
 
     switchLanguage(lang) {
@@ -53,7 +73,20 @@ export default {
         expires: 3650,
         domain
       })
-      window.location.reload()
+      this.$root.$i18n.locale = window._config.locale = lang
+      document.querySelector('html').setAttribute('lang', lang)
+      document.querySelector('title').innerText = window.localeMsg[window._config.locale]['polkaTitle']
+    },
+    path(path) {
+      return `/${this.network}${path}`
+    },
+    active(routeList) {
+      return routeList.includes(this.$route.name)
+    },
+    toggleNet(network) {
+      if (network === this.curNetwork) return
+      this.isNetworkMenuDropdown = false
+      this.$router.push(`/${transferNetworkToPath(network)}`)
     }
   }
 }

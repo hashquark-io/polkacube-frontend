@@ -2,16 +2,13 @@
 //
 
 @mixin navi-icon($img) {
-  margin-top: 3px;
-  width: 18px;
-  height: 18px;
   background-image: url($img);
   background-size: 100% 100%;
   background-position: center;
 }
 
 .navi-pc {
-  z-index: 2001;
+  z-index: 2000;
   position: fixed;
   top: 0;
   width: 100%;
@@ -24,6 +21,7 @@
     justify-content: space-between;
     width: $width-pc;
     min-width: $width-pc-container;
+    max-width: 1920px;
     height: $height-pc-navi;
   }
 
@@ -33,20 +31,27 @@
     align-items: center;
 
     .split-line {
-      margin: 0 20px 0;
+      margin: 0 20px;
       width: 1px;
       height: 18px;
-      background: #8493b3;
+      background: $color-3;
     }
-
+    .last-item {
+      margin-right: 0px !important;
+    }
     .item {
       margin-right: 26px;
       font-weight: 500;
+      height: 100%;
+      line-height: $height-pc-navi;
       cursor: pointer;
 
       &.lang {
         margin-right: 0;
-
+        .reference {
+          display: flex;
+          align-items: center;
+        }
         .icon-lang {
           display: inline-block;
           @include navi-icon('./img/lang2.svg');
@@ -57,17 +62,29 @@
       }
 
       &.active {
+        position: relative;
+        &::after {
+          content: ' ';
+          display: block;
+          height: 4px;
+          width: 100%;
+          background-color: $color-2;
+          position: absolute;
+          bottom: 0;
+        }
         a,
         span {
-          color: #0053fb;
+          color: $color-2;
         }
       }
 
       a {
+        display: inline-block;
+        height: 100%;
         color: $color-main;
 
         &:hover {
-          color: #0053fb;
+          color: $color-2;
         }
       }
 
@@ -75,7 +92,7 @@
         color: $color-main;
 
         &:hover {
-          color: #0053fb;
+          color: $color-2;
         }
       }
     }
@@ -87,13 +104,13 @@
       height: $height-pc-navi;
       line-height: $height-pc-navi;
 
-      // border-bottom: 4px solid #0053fb;
+      // border-bottom: 4px solid $color-2;
       &::after {
         content: ' ';
         display: block;
         height: 4px;
         width: 100%;
-        background-color: #0053fb;
+        background-color: $color-2;
         position: absolute;
         bottom: 0;
       }
@@ -109,44 +126,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
+    margin-right: 45px;
+    height: 35px;
 
     a {
-      display: block;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      height: 100%;
       text-align: center;
     }
-
-    .icon {
-      @include navi-icon('../../assets/img/logo2.svg');
-      width: 100%;
-      height: 28px;
+    .home {
+      font-size: 18px;
+      font-weight: 600;
+      color: $color-main;
+      line-height: 25px;
     }
-
     img {
-      height: 28px;
-      vertical-align: top;
+      margin-right: 6px;
+      height: 35px;
     }
-  }
-
-  .sub-title {
-    margin-left: 10px;
-    margin-right: 40px;
-    padding-left: 10px;
-    height: 18px;
-    line-height: 20px;
-    font-size: 13px;
-    color: $color-1;
-    border-left: 1px solid $color-1;
-    opacity: 0.6;
-    transform: translateY(2px);
   }
 }
 
 .popover-navi {
-  top: $height-pc-navi - 12 !important;
-  min-width: 100px;
-  padding: 0;
+  top: $height-pc-navi - 8 !important;
+  min-width: 100px !important;
+  padding: 0 !important;
 
   .list {
     border-radius: 4px;
@@ -159,15 +164,12 @@
       p {
         display: block;
         padding: 0 20px;
-        color: #03144b;
-
+        color: $color-1;
+        // font-size: 12px;
+        cursor: pointer;
         &:hover {
-          background-color: #eaeef8;
-        }
-
-        span {
-          color: #8493b3;
-          font-size: 12px;
+          color: $color-2;
+          background-color: $color-5;
         }
       }
     }

@@ -1,4 +1,3 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="polka-strategy-page">
     <div class="polka-strategy-bg" v-if="identity === undefined && !isMobile">
@@ -11,23 +10,23 @@
     </div>
     <div class="polka-strategy" v-if="identity === undefined">
       <div class="title-wrap">
-        <p class="title">{{ $t('title') }}</p>
-        <p class="desc">{{ $t('desc') }}</p>
+        <p class="title">{{ $t('polkaStrategy.title') }}</p>
+        <p class="desc">{{ $t('polkaStrategy.desc') }}</p>
       </div>
       <div class="card">
         <div class="card-item">
-          <div class="btn" @click="$router.push('/polka/strategy/nominator')">
+          <div class="btn" @click="$router.push(`/${network}/strategy/nominator`)">
             <img src="./img/nomination.png" alt />
-            <span>{{ $t('nomination')[0] }}</span>
+            <span>{{ $t('polkaStrategy.nomination')[0] }}</span>
           </div>
-          <p>{{ $t('nomination')[1] }}</p>
+          <p>{{ $t('polkaStrategy.nomination')[1] }}</p>
         </div>
         <div class="card-item">
-          <div class="btn" @click="$router.push('/polka/strategy/validator')">
+          <div class="btn" @click="$router.push(`/${network}/strategy/validator`)">
             <img src="./img/validator.png" alt />
-            <span>{{ $t('validator')[0] }}</span>
+            <span>{{ $t('polkaStrategy.validator')[0] }}</span>
           </div>
-          <p>{{ $t('validator')[1] }}</p>
+          <p>{{ $t('polkaStrategy.validator')[1] }}</p>
         </div>
       </div>
     </div>

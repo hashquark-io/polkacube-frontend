@@ -2,9 +2,8 @@ import validator from '@/components/validator/validator.vue'
 import income from '@/components/income/income.vue'
 import slash from '@/components/slash/slash.vue'
 
-import { thousandth } from '@/methods/util'
+import { thousandth, loadSocket } from '@/methods/util'
 import VueSticky from 'vue-sticky'
-let socket = null
 export default {
   components: {
     validator,
@@ -35,9 +34,9 @@ export default {
       return eraProgress ? `${(eraProgress * 100) / eraLength}%` : 0
     }
   },
-  created() {
+  mounted() {
     // eslint-disable-next-line no-undef
-    window.socket = socket || (socket = window.io.connect(APP_POLKA_BASE_HOST))
+    loadSocket(this.network)
     this.initSocket()
     this.startTimer()
     this.queryToken()
@@ -51,9 +50,9 @@ export default {
     initSocket() {
       let id = Math.random()
       const self = this
-      socket.on('finalizedHeaderChange', function(data) {
+      window.socket.on('finalizedHeaderChange', function(data) {
         self.polkaInfo.height = `${thousandth(data.height)}`
-        socket.emit('server', id)
+        window.socket.emit('server', id)
       })
     },
     queryToken() {
@@ -103,5 +102,7 @@ export default {
     clearInterval(this.timer2)
     this.timer1 = null
     this.timer2 = null
+    window.socket?.close()
+    window.socket = null
   }
 }

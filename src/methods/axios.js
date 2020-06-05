@@ -44,3 +44,5 @@ Axios.interceptors.response.use(
 )
 
 proto.axios = Axios
+
+export default Axios

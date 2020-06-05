@@ -1,9 +1,8 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="validator-comp-wrap">
     <img src="@/assets/img/dot.png" alt class="img-dot" v-if="!isMobile" />
     <div class="top">
-      <div class="title" v-if="!isMobile">{{ $t('title') }}</div>
+      <div class="title" v-if="!isMobile">{{ $t('validatorComp.title') }}</div>
       <announcement :marqueeList="marqueeList" />
     </div>
     <div class="table-comp-wrap">
@@ -12,14 +11,14 @@
         v-loading="!isMounted && !isMobile"
         :data="tableData"
         :height="isMobile ? undefined : tableHeight"
-        :empty-text="dataLoaded ? $t('emptyText') : ' '"
+        :empty-text="dataLoaded ? $t('validatorComp.emptyText') : ' '"
         header-cell-class-name="table-header-cell"
         cell-class-name="table-body-cell"
         :row-class-name="tableRowClass"
         @row-click="toDetail"
         ref="table"
       >
-        <el-table-column prop="validatorAddr" :label="$t('tableTitle')[0]" :width="isMobile ? '' : 520">
+        <el-table-column prop="validatorAddr" :label="$t('validatorComp.tableTitle')[0]" :width="isMobile ? '' : 520">
           <template slot-scope="scope">
             <div class="table-col-1">
               <Identicon :size="28" :theme="'polkadot'" :value="scope.row.validatorAddr" />
@@ -31,14 +30,43 @@
                     :identity="scope.row.validatorName"
                     v-if="Object.keys(scope.row.validatorName).length > 0"
                   />
-                  {{ (scope.row.validatorName && scope.row.validatorName.display) || $t('validatorName') }}
+                  &nbsp;
+                  <el-popover
+                    trigger="hover"
+                    width="420"
+                    popper-class="totalBonded-popover phala-tip"
+                    v-if="scope.row.partner"
+                  >
+                    <p>
+                      <span v-html="$t('validatorComp.description')"></span>
+                      &nbsp;
+                      <a href="https://forum.phala.network/" rel="noopener noreferrer" target="_blank">{{
+                        $t('validatorComp.detail')
+                      }}</a>
+                      &nbsp;
+                      {{ $t('validatorComp.descriptionEnd') }}
+                    </p>
+                    <img
+                      slot="reference"
+                      class="icon-judgement el-popover__reference"
+                      src="@/assets/img/icon-judge-7.png"
+                    />
+                  </el-popover>
+                  {{
+                    (scope.row.validatorName && scope.row.validatorName.display) || $t('validatorComp.validatorName')
+                  }}
                 </div>
                 <div>{{ isMobile ? strSlice(scope.row.validatorAddr) : scope.row.validatorAddr }}</div>
               </div>
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="totalBondedKsm" :label="$t('tableTitle')[1]" :width="isMobile ? 120 : 180" align="right">
+        <el-table-column
+          prop="totalBondedKsm"
+          :label="$t('validatorComp.tableTitle')[1]"
+          :width="isMobile ? 120 : 180"
+          align="right"
+        >
           <template slot-scope="scope">
             <el-popover
               placement="top-start"
@@ -52,17 +80,26 @@
         </el-table-column>
         <el-table-column
           prop="commission"
-          :label="$t('tableTitle')[2]"
+          :label="$t('validatorComp.tableTitle')[2]"
           align="right"
           v-if="!isMobile"
         ></el-table-column>
-        <el-table-column prop="eraPoint" :label="$t('tableTitle')[3]" align="right" v-if="!isMobile"></el-table-column>
-        <el-table-column prop="height" :label="$t('tableTitle')[4]" align="right" v-if="!isMobile"></el-table-column>
+        <el-table-column
+          prop="eraPoint"
+          :label="$t('validatorComp.tableTitle')[3]"
+          align="right"
+          v-if="!isMobile"
+        ></el-table-column>
+        <el-table-column
+          prop="height"
+          :label="$t('validatorComp.tableTitle')[4]"
+          align="right"
+          v-if="!isMobile"
+        ></el-table-column>
         <el-table-column
           prop="star"
-          :label="$t('tableTitle')[5]"
+          :label="$t('validatorComp.tableTitle')[5]"
           align="center"
-          v-if="!isMobile || true"
           :width="isMobile ? 60 : 80"
         >
           <template slot-scope="scope">
@@ -81,6 +118,7 @@ import Identicon from '@polkadot/vue-identicon'
 import announcement from '@/components/announcement/announcement.vue'
 import judgementPopover from '@/components/judgementPopover/judgementPopover.vue'
 import { tableResize } from '@/methods/tableMixin'
+import { loadSocket } from '@/methods/util'
 export default {
   mixins: [tableResize],
   components: {
@@ -115,11 +153,13 @@ export default {
   },
   mounted() {
     this.queryData()
-    this.dealSocket()
     this.startTimer()
+    this.dealSocket()
   },
   methods: {
     dealSocket() {
+      loadSocket(this.network)
+
       let id = Math.random()
       const self = this
       window.socket.on('headerChange', function(data) {
@@ -136,7 +176,7 @@ export default {
     },
     toDetail({ validatorAddr }) {
       const ind = this.tableData.findIndex(row => row.validatorAddr === validatorAddr)
-      this.$router.push(`/polka/detail?id=${validatorAddr}&ind=${ind}`)
+      this.$router.push(`/${this.network}/detail?id=${validatorAddr}&ind=${ind}`)
     },
     queryData() {
       this.loading = true
@@ -161,7 +201,7 @@ export default {
           this.dataLoaded = true
           this.isMounted = true
           setTimeout(() => {
-            this.$refs.table.doLayout() // fix firefox and edge
+            this.$refs.table && this.$refs.table.doLayout() // fix firefox and edge
           }, 0)
         },
         () => {
@@ -207,6 +247,8 @@ export default {
   },
   beforeDestroy() {
     this.endTimer()
+    window.socket?.close()
+    window.socket = null
   }
 }
 </script>

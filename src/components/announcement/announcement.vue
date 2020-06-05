@@ -1,4 +1,3 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="marquee">
     <div class="marquee-title">
@@ -77,7 +76,7 @@ export default {
     },
     validatorName(validatorName) {
       if (typeof validatorName === 'object') {
-        return validatorName.display ? validatorName.display : this.$t('validatorName')
+        return validatorName.display ? validatorName.display : this.$t('announcementComp.validatorName')
       } else {
         return ''
       }

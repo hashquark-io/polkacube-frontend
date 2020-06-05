@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="PolkaCube 是由HashQuark团队开发的，专注为 Polkadot 生态的验证人和提名人提供更好的 Staking 体验的项目，将包括完善的链上数据展示、Staking 最优策略指导、钱包和抵押管理等功能。"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="HashQuark 实验室是 HashKey Group 旗下 Staking 生态服务商 HashQuark 推出的全新技术服务平台。HashQuark 致力于 PoS 及 staking
-    币种的生态和研究，关注优质 PoS 项目的研发进展，并提供相应的工具集，促使行业更好的了解和加入未来 Staking 项目。HashQuark 实验室已上线 PolkaCube、以太坊 2.0、Libra 等相关产品。">
+    <meta
+      name="keywords"
+      content="HashQuark,Quark,Staking,矿池,区块链矿池,Blockchain Mining Pool, Staking Pool, POS,POS矿池,POS Staking Pool,DPOS矿池,数字资产,digital assets,数字货币,cryptocurrency,波卡,Polkadot,以太坊,ETH,ETH2,Libra,Klaytn,Kusama,Cosmos,Tezos,Dash,达世,Qtum,PlatON,PolkaCube,EtherPocket,PlatKeeper."
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
-  <meta name="keywords" content="HashQuark, HashQuark Labs, Blockchain, Staking, Staking Pool, Staking Service, PoS, DPoS, PoS Staking,
-    Polkadot, PolkaCube, Ethereum, Ethereum 2, Serenity, Libra, PlatON, Difinity, Filecoin, cryptocurrency, digital
-    asset, HashQuark 实验室, 区块链, 矿池, Staking 矿池, Staking 挖矿, Staking 服务, PoS矿池, 波卡, 以太坊, 以太坊 2, 数字货币, 数字资产">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title></title>
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link rel="apple-touch-icon" href="<%= BASE_URL %>logo.png" />
+    <!-- IOS全屏模式 -->
+    <meta name="apple-mobile-web-app-title" content="HashQuark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
 
-  <meta name="format-detection" content="telephone=no">
-  <title></title>
-  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <link rel="apple-touch-icon" href="<%= BASE_URL %>logo.png">
-  <!-- IOS全屏模式 -->
-  <meta name="apple-mobile-web-app-title" content="HashQuark">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
+    <!-- 关闭电话自动识别 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- UC浏览器强制全屏 -->
+    <meta name="full-screen" content="yes" />
+    <meta name="browsermode" content="application" />
 
-  <!-- 关闭电话自动识别 -->
-  <meta name="format-detection" content="telephone=no" />
+    <!-- QQ浏览器强制全屏 -->
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
 
-  <link rel="preconnect" href="https://hm.baidu.com">
-  <script src="https://cdn.jsdelivr.net/npm/echarts@4.1.0/dist/echarts.common.min.js"></script>
-  <script src="<%= BASE_URL %>socket.io.js"></script>
-</head>
+    <link rel="preconnect" href="https://hm.baidu.com" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.1.0/dist/echarts.common.min.js"></script>
+    <script src="<%= BASE_URL %>socket.io.js"></script>
+  </head>
 
-<body>
-  <noscript>
-    <strong>We're sorry but hashquark_labs doesn't work properly without JavaScript enabled. Please enable it to
-      continue.</strong>
-  </noscript>
-  <div id="app"></div>
-  <!-- built files will be auto injected -->
-</body>
-
-
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but hashquark_labs doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>

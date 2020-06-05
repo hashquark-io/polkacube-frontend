@@ -1,26 +1,31 @@
-<i18n src="./locale.json"></i18n>
 <template>
   <div class="validator-strategy">
     <div class="title">
-      <span @click="$router.replace('/polka/strategy')">{{ $t('title') }}</span>
-      <span>> {{ $t('subTitle') }}</span>
+      <span @click="$router.replace(`/${network}/strategy`)">{{ $t('validatorStrategyComp.title') }}</span>
+      <span>> {{ $t('validatorStrategyComp.subTitle') }}</span>
     </div>
     <div class="card">
-      <p class="card-title">{{ $t('inputTitle') }}</p>
+      <p class="card-title">{{ $t('validatorStrategyComp.inputTitle', [units]) }}</p>
       <div class="card-input-wrap">
         <img class="icon" src="@/assets/img/calc.png" alt />
-        <input type="text" class="input" :placeholder="$t('inputPlaceholder')" @input="formatInp" ref="inp" />
+        <input
+          type="text"
+          class="input"
+          :placeholder="$t('validatorStrategyComp.inputPlaceholder')"
+          @input="formatInp"
+          ref="inp"
+        />
         <el-button
           type="primary"
           :class="['btn', !+amount && 'disabled']"
           :disabled="!+amount"
           @click="showProgressBar"
           v-if="!isMobile"
-          >{{ $t('btn') }}</el-button
+          >{{ $t('validatorStrategyComp.btn') }}</el-button
         >
       </div>
       <el-button type="primary" :class="['btn', !+amount && 'disabled']" @click="showProgressBar" v-if="isMobile">{{
-        $t('btn')
+        $t('validatorStrategyComp.btn')
       }}</el-button>
 
       <progress-bar ref="progressBar" :show="isCalc" />
@@ -28,64 +33,68 @@
       <div class="card-tips" v-show="!noData && showResult && !isMobile">
         <div class="daily-income">
           <div class="left">
-            <p class="main-color fontw5 m-t-7">{{ $t('cardLabel')[0] }}</p>
-            <p class="grey" style="width: 450px;">{{ $t('cardLabel')[1] }}</p>
+            <p class="main-color fontw5 m-t-7">{{ $t('validatorStrategyComp.cardLabel')[0] }}</p>
+            <p class="grey" style="width: 450px;">{{ $t('validatorStrategyComp.cardLabel')[1] }}</p>
           </div>
           <div class="right">
             <p class="orange fontw5 m-b-7 f-24">
-              {{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}
-              <span class="f-16">KSM</span>
+              <span v-if="units === 'KSM'">{{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}</span>
+              <span v-else>N/A DOT</span>
+              <span class="f-16" v-if="units === 'KSM' && info.dailyRevenue">{{ units }}</span>
             </p>
-            <p class="main-color">{{ $t('cardLabel')[2] }}</p>
+            <p class="main-color">{{ $t('validatorStrategyComp.cardLabel')[2] }}</p>
           </div>
         </div>
         <div class="year-income">
-          <p class="orange fontw5 m-b-7 f-24">{{ info.annualRate }}</p>
-          <p class="main-color">{{ $t('cardLabel')[3] }}</p>
+          <p class="orange fontw5 m-b-7 f-24" v-if="units === 'KSM' && info.annualRate">{{ info.annualRate }}</p>
+          <p class="orange fontw5 m-b-7 f-24" v-else>N/A</p>
+          <p class="main-color">{{ $t('validatorStrategyComp.cardLabel')[3] }}</p>
         </div>
       </div>
 
       <div class="card-tips" v-show="!noData && showResult && isMobile">
         <div class="top">
-          <p class="main-color fontw5">{{ $t('cardLabel')[0] }}</p>
-          <p class="grey">{{ $t('cardLabel')[1] }}</p>
+          <p class="main-color fontw5">{{ $t('validatorStrategyComp.cardLabel')[0] }}</p>
+          <p class="grey">{{ $t('validatorStrategyComp.cardLabel')[1] }}</p>
         </div>
         <div class="income">
           <div class="daily-income">
             <p class="orange fontw5 f-24">
-              {{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}
-              <span class="f-16">KSM</span>
+              <span v-if="units === 'KSM'">{{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}</span>
+              <span v-else>N/A DOT</span>
+              <span class="f-16" v-if="units === 'KSM' && info.dailyRevenue">{{ units }}</span>
             </p>
-            <p class="main-color">{{ $t('cardLabel')[2] }}</p>
+            <p class="main-color">{{ $t('validatorStrategyComp.cardLabel')[2] }}</p>
           </div>
           <div class="year-income">
-            <p class="orange fontw5 f-24">{{ info.annualRate }}</p>
-            <p class="main-color">{{ $t('cardLabel')[3] }}</p>
+            <p class="orange fontw5 m-b-7 f-24" v-if="units === 'KSM' && info.annualRate">{{ info.annualRate }}</p>
+            <p class="orange fontw5 m-b-7 f-24" v-else>N/A</p>
+            <p class="main-color">{{ $t('validatorStrategyComp.cardLabel')[3] }}</p>
           </div>
         </div>
       </div>
 
       <div class="no-data" v-if="noData && showResult">
-        <span v-text="$t('tips2')"></span>
-        <router-link to="/polka/strategy/nominator">{{ $t('link') }}</router-link>
-        <span>{{ $t('punctuation') }}</span>
+        <span v-text="$t('validatorStrategyComp.tips2')"></span>
+        <router-link to="/polka/strategy/nominator">{{ $t('validatorStrategyComp.link') }}</router-link>
+        <span>{{ $t('validatorStrategyComp.punctuation') }}</span>
       </div>
 
       <div v-if="!noData && showResult" class="result">
         <p>
-          {{ $t('resultLabel')[0] }}
+          {{ $t('validatorStrategyComp.resultLabel')[0] }}
           <span class="f-24">{{ info.totalNumber }}</span>
         </p>
         <div v-if="isMobile">
-          <p style="float: left; margin-top: 10px;">{{ $t('resultLabel')[1] }}</p>
-          <p class="f-24" style="float: left;">{{ thousandth(info.averageBonded, 3) }} KSM</p>
+          <p style="float: left; margin-top: 10px;">{{ $t('validatorStrategyComp.resultLabel')[1] }}</p>
+          <p class="f-24" style="float: left;">{{ thousandth(info.averageBonded, 3) }} {{ units }}</p>
           <p class="clear"></p>
         </div>
         <div v-else>
-          {{ $t('resultLabel')[1] }}
-          <span class="f-24">{{ thousandth(info.averageBonded, 3) }} KSM</span>
+          {{ $t('validatorStrategyComp.resultLabel')[1] }}
+          <span class="f-24">{{ thousandth(info.averageBonded, 3) }} {{ units }}</span>
         </div>
-        <p class="tips">{{ $t('tips1') }}</p>
+        <p class="tips">{{ $t('validatorStrategyComp.tips1') }}</p>
       </div>
     </div>
   </div>
@@ -93,6 +102,7 @@
 
 <script>
 import progressBar from '@/components/progressbar/progressbar'
+import { formatInp } from '@/methods/util'
 
 export default {
   components: {
@@ -137,7 +147,7 @@ export default {
       const progressIns = this.$refs.progressBar
       if (!this.amount || this.amount <= 0 || progressIns.isPending) return
       if (this.amount > 10000000) {
-        this.$message.error(this.$t('invalideNum'))
+        this.$msg.error(this.$t('validatorStrategyComp.invalideNum'))
         return
       }
       this.isCalc = true
@@ -156,26 +166,13 @@ export default {
           console.warn(err)
           progressIns.finish().then(() => {
             this.isCalc = false
-            this.$message.error(this.$t('timeout'))
+            this.$msg.error(this.$t('validatorStrategyComp.timeout'))
           })
         }
       )
     },
     formatInp(e) {
-      let val = e.target.value
-      val = val.replace(/[^\d.]/g, '') //清除“数字”和“.”以外的字符
-      val = val.replace(/\.{2,}/g, '.') //只保留第一个. 清除多余的
-      val = val
-        .replace('.', '$#$')
-        .replace(/\./g, '')
-        .replace('$#$', '.')
-      // eslint-disable-next-line no-useless-escape
-      val = val.replace(/^(\-)*(\d+)\.(\d\d\d\d\d\d).*$/, '$1$2.$3') //只能输入6位小数
-      //如果没有小数点，不能为类似 01、02的金额
-      // if (val.indexOf(".") < 0 && val != "") {
-      //   val = parseFloat(val);
-      // }
-      this.amount = e.target.value = val
+      this.amount = e.target.value = formatInp(e.target.value, 6)
     }
   }
 }
