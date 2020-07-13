@@ -19,8 +19,8 @@
         </div>
         <div class="item">
           <p class="key">{{ $t('polka.info')[3] }}</p>
-          <p class="value" v-if="units === 'KSM'">{{ Mathfloor(polkaInfo.inflation * 100, 2) }}%</p>
-          <p class="value" v-else>N/A</p>
+          <p class="value" v-if="polkaInfo.inflation">{{ Mathfloor(polkaInfo.inflation * 100, 2) }}%</p>
+          <p class="value" v-else>--</p>
         </div>
 
         <div class="item">
@@ -29,8 +29,8 @@
         </div>
         <div class="item">
           <p class="key">{{ $t('polka.info')[5] }}</p>
-          <p class="value" v-if="units === 'KSM'">{{ polkaInfo.valDayRewards }}</p>
-          <p class="value" v-else>0 DOT</p>
+          <p class="value" v-if="polkaInfo.valDayRewards">{{ polkaInfo.valDayRewards }}</p>
+          <p class="value" v-else>--</p>
         </div>
 
         <div class="item">
