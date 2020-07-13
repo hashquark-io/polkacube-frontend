@@ -40,16 +40,16 @@
           </div>
           <div class="right">
             <p class="orange fontw5 m-b-7 f-24">
-              <span v-if="units === 'KSM'">{{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}</span>
-              <span v-else>N/A DOT</span>
-              <span class="f-16" v-if="units === 'KSM' && info.dailyRevenue">{{ units }}</span>
+              <span v-if="info.dailyRevenue">{{ info.dailyRevenue.slice(0, -3) }}</span>
+              <span v-else>--</span>
+              <span class="f-16" v-if="info.dailyRevenue">{{ units }}</span>
             </p>
             <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[2] }}</p>
           </div>
         </div>
         <div class="year-income">
-          <p class="orange fontw5 m-b-7 f-24" v-if="units === 'KSM' && info.annualRate">{{ info.annualRate }}</p>
-          <p class="orange fontw5 m-b-7 f-24" v-else>N/A</p>
+          <p class="orange fontw5 m-b-7 f-24" v-if="info.annualRate">{{ info.annualRate }}</p>
+          <p class="orange fontw5 m-b-7 f-24" v-else>--</p>
           <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[3] }}</p>
         </div>
       </div>
@@ -62,15 +62,15 @@
         <div class="income">
           <div class="daily-income">
             <p class="orange fontw5 f-24">
-              <span v-if="units === 'KSM'">{{ info.dailyRevenue && info.dailyRevenue.slice(0, -3) }}</span>
-              <span v-else>N/A DOT</span>
-              <span class="f-16" v-if="units === 'KSM' && info.dailyRevenue">{{ units }}</span>
+              <span v-if="info.dailyRevenue">{{ info.dailyRevenue.slice(0, -3) }}</span>
+              <span v-else>--</span>
+              <span class="f-16" v-if="info.dailyRevenue">{{ units }}</span>
             </p>
             <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[2] }}</p>
           </div>
           <div class="year-income">
-            <p class="orange fontw5 m-b-7 f-24" v-if="units === 'KSM' && info.annualRate">{{ info.annualRate }}</p>
-            <p class="orange fontw5 m-b-7 f-24" v-else>N/A</p>
+            <p class="orange fontw5 m-b-7 f-24" v-if="info.annualRate">{{ info.annualRate }}</p>
+            <p class="orange fontw5 m-b-7 f-24" v-else>--</p>
             <p class="main-color">{{ $t('nominatorStrategyComp.cardLabel')[3] }}</p>
           </div>
         </div>
